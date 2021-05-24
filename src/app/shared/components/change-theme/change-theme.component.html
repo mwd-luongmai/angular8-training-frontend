@@ -1,0 +1,7 @@
+<select [(ngModel)]="selectedTheme" (ngModelChange)="onSetTheme($event)">
+  <option *ngFor="let t of themes" [ngValue]="t"
+    ><span i18n="@@themeName"
+      >dummy {t.id, select, default-theme {tname}}</span
+    ></option
+  >
+</select>

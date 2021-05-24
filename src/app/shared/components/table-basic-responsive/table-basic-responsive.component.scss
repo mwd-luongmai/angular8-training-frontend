@@ -1,0 +1,43 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+  overflow-y: scroll;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-label {
+    width: 100px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 10px;
+    min-height: 0px;
+  }
+
+  .mat-cell {
+    min-height: 30px;
+  }
+
+  .mat-cell:first-of-type {
+    padding-left: 0px;
+  }
+}

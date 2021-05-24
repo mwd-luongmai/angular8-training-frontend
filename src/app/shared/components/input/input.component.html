@@ -1,0 +1,27 @@
+<mat-form-field>
+  <mat-icon matPrefix
+    ><i class="material-icons md-dark">{{ icon }}</i></mat-icon
+  >
+  <input
+    *ngIf="type !== 'textarea'"
+    matInput
+    placeholder="{{ placeholder }}"
+    [(ngModel)]="value"
+    [attr.type]="type"
+    (blur)="onBlur()"
+  />
+  <textarea
+    *ngIf="type === 'textarea'"
+    matInput
+    rows="{{ rows }}"
+    placeholder="{{ placeholder }}"
+    [(ngModel)]="value"
+    [attr.type]="type"
+    (blur)="onBlur()"
+  ></textarea>
+  <validation-messages
+    *ngIf="errorVisible && errors"
+    [errors]="errors"
+    [errorsDef]="errorsDef"
+  ></validation-messages>
+</mat-form-field>

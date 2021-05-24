@@ -1,0 +1,88 @@
+﻿<!-- main app container -->
+<div class="jumbotron">
+  <div class="container">
+    <mat-toolbar
+      color="primary"
+      class="toolbar"
+      fxShow="true"
+      fxHide.lt-md="true"
+    >
+      <div class="logo" routerLink="/">
+        <ng-container i18n="logo text">SWATANG</ng-container>
+      </div>
+      <div class="welcome" *ngIf="currentUser">
+        <a mat-button routerLink="/users/search-user"
+          ><mat-icon><i class="material-icons md-dark">search</i></mat-icon></a
+        >
+        <a mat-button routerLink="/users/profile"
+          ><mat-icon
+            ><i class="material-icons md-dark">account_circle</i></mat-icon
+          ><span class="name"
+            ><ng-container i18n="@@hi-en">Hi </ng-container
+            >{{ currentUser.name }}
+            <ng-container i18n="@@hi-ja">Hi </ng-container>!</span
+          ></a
+        >
+        <a mat-button (click)="logout()"
+          ><mat-icon><i class="material-icons md-dark">exit_to_app</i></mat-icon
+          ><ng-container i18n="@@logout-link">Log out</ng-container></a
+        >
+      </div>
+    </mat-toolbar>
+    <mat-toolbar
+      color="primary"
+      class="m-toolbar"
+      fxShow="true"
+      fxHide.gt-sm="true"
+    >
+      <button mat-icon-button (click)="sidenav.toggle()" *ngIf="currentUser">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/">
+        <ng-container i18n="logo text">SWATANG</ng-container>
+      </span>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxHide.gt-sm="true">
+      <mat-sidenav #sidenav mode="over" fixedInViewport="true" fixedTopGap="56">
+        <mat-nav-list *ngIf="currentUser">
+          <a
+            mat-list-item
+            routerLink="/users/search-user"
+            (click)="sidenav.toggle()"
+            ><mat-icon
+              ><i class="material-icons md-dark">search</i></mat-icon
+            ></a
+          >
+          <a
+            mat-list-item
+            routerLink="/users/profile"
+            (click)="sidenav.toggle()"
+            ><mat-icon
+              ><i class="material-icons md-dark">account_circle</i></mat-icon
+            ><span class="name"
+              ><ng-container i18n="@@hi-en">Hi </ng-container
+              >{{ currentUser.name }}
+              <ng-container i18n="@@hi-ja">Hi </ng-container>!</span
+            ></a
+          >
+          <a mat-list-item (click)="logout()" (click)="sidenav.toggle()"
+            ><mat-icon
+              ><i class="material-icons md-dark">exit_to_app</i></mat-icon
+            ><ng-container i18n="@@logout-link">Log out</ng-container></a
+          >
+        </mat-nav-list>
+      </mat-sidenav>
+    </mat-sidenav-container>
+
+    <div class="themes">
+      <app-change-theme (themeChange)="applyTheme($event)"></app-change-theme>
+      <app-change-language
+        (changeLanguage)="changeLang($event)"
+      ></app-change-language>
+    </div>
+
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+  </div>
+</div>

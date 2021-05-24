@@ -1,0 +1,107 @@
+li {
+  display: inline;
+  font-size: 12px;
+}
+
+li {
+  &::after {
+    content: '|';
+    padding: 5px;
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+}
+
+.logo {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.toolbar .menu ul li {
+  font-size: 11pt;
+}
+
+.user-avatar {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg');
+  background-size: cover;
+}
+
+.welcome {
+  width: 100%;
+  text-align: right;
+  margin: 10px;
+}
+
+.themes {
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.m-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  //CSS
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  //CSS
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  //CSS
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  //CSS
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .themes {
+    text-align: right;
+    margin-top: 65px;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .themes {
+    text-align: right;
+    margin-top: 65px;
+    margin-bottom: 10px;
+  }
+}

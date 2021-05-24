@@ -1,0 +1,799 @@
+<html>
+<head>
+<style>
+body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
+#HTMLReporter { font-size: 11px; font-family: Monaco, "Lucida Console", monospace; line-height: 14px; color: #333333; }
+#HTMLReporter a { text-decoration: none; }
+#HTMLReporter a:hover { text-decoration: underline; }
+#HTMLReporter p, #HTMLReporter h1, #HTMLReporter h2, #HTMLReporter h3, #HTMLReporter h4, #HTMLReporter h5, #HTMLReporter h6 { margin: 0; line-height: 14px; }
+#HTMLReporter .banner, #HTMLReporter .symbolSummary, #HTMLReporter .summary, #HTMLReporter .resultMessage, #HTMLReporter .specDetail .description, #HTMLReporter .alert .bar, #HTMLReporter .stackTrace { padding-left: 9px; padding-right: 9px; }
+#HTMLReporter #jasmine_content { position: fixed; right: 100%; }
+#HTMLReporter .version { color: #aaaaaa; }
+#HTMLReporter .banner { margin-top: 14px; }
+#HTMLReporter .duration { color: #aaaaaa; float: right; }
+#HTMLReporter .exceptions { color: #fff; float: right; margin-top: 5px; margin-right: 5px; }
+#HTMLReporter .bar { line-height: 28px; font-size: 14px; display: block; color: #eee; }
+#HTMLReporter .runningAlert { background-color: #666666; }
+#HTMLReporter .skippedAlert { background-color: #aaaaaa; }
+#HTMLReporter .skippedAlert:first-child { background-color: #333333; }
+#HTMLReporter .skippedAlert:hover { text-decoration: none; color: white; text-decoration: underline; }
+#HTMLReporter .passingAlert { background-color: #a6b779; }
+#HTMLReporter .passingAlert:first-child { background-color: #5e7d00; }
+#HTMLReporter .failingAlert { background-color: #cf867e; }
+#HTMLReporter .failingAlert:first-child { background-color: #b03911; }
+#HTMLReporter .results { margin-top: 14px; }
+#HTMLReporter #details { display: none; }
+#HTMLReporter .resultsMenu, #HTMLReporter .resultsMenu a { background-color: #fff; color: #333333; }
+#HTMLReporter.showDetails .summaryMenuItem { font-weight: normal; text-decoration: inherit; }
+#HTMLReporter.showDetails .summaryMenuItem:hover { text-decoration: underline; }
+#HTMLReporter.showDetails .detailsMenuItem { font-weight: bold; text-decoration: underline; }
+#HTMLReporter.showDetails .summary { display: none; }
+#HTMLReporter.showDetails #details { display: block; }
+#HTMLReporter .summaryMenuItem { font-weight: bold; text-decoration: underline; }
+#HTMLReporter .summary { margin-top: 14px; }
+#HTMLReporter .summary .suite .suite, #HTMLReporter .summary .specSummary { margin-left: 14px; }
+#HTMLReporter .summary .specSummary.passed span { color: #5e7d00; }
+#HTMLReporter .summary .specSummary.failed span { color: #b03911; }
+#HTMLReporter .description + .suite { margin-top: 0; }
+#HTMLReporter .suite { margin-top: 14px; }
+#HTMLReporter .suite a { color: #333333; }
+#HTMLReporter #details .specDetail { margin-bottom: 28px; }
+#HTMLReporter #details .specDetail .description { display: block; color: white; background-color: #b03911; }
+#HTMLReporter .resultMessage { padding-top: 14px; color: #333333; }
+#HTMLReporter .resultMessage span.result { display: block; }
+#HTMLReporter .stackTrace { margin: 5px 0 0 0; max-height: 224px; overflow: auto; line-height: 18px; color: #666666; border: 1px solid #ddd; background: white; white-space: pre; }
+</style>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script>
+ 	$(function(){
+		$("a.summaryMenuItem").on("click", function(){
+			$("body").removeClass("showDetails").addClass("showSummary");
+		});
+		$("a.detailsMenuItem").on("click", function(){
+			$("body").addClass("showDetails").removeClass("showSummary");
+		});
+
+	});
+ </script>
+</head>
+
+<body id="HTMLReporter" class="html-reporter showDetails">
+<div class="alert">
+
+
+<span class="failingAlert bar">Failed 4 specs</span>
+<span class="resultsMenu bar">
+<a class="summaryMenuItem" href="#">30 specs<a>|<a class="detailsMenuItem" href="#">4 failing</a>
+</span>
+
+
+
+</div>
+<div class="results">
+	<div class="summary">
+
+
+	
+		<div class="suite failed">
+			<span class="description"> AppComponent</span>
+		
+			<div class="specSummary failed">
+			<span class="description">shoul call AppComponent.logout when clicking log out url</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">shoul call AuthenticationService.logout function when logging out</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite passed">
+			<span class="description"> ForgotPasswordComponent</span>
+		
+			<div class="specSummary passed">
+			<span class="description">should call api when submiting form</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should not call UserService api with empty email</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display error message when UserService fail</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should be validated when the email value is invalid</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite passed">
+			<span class="description"> ProfileComponent</span>
+		
+			<div class="specSummary passed">
+			<span class="description">should load current profile data</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display success message when updating profile with valid data</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should not update profile with invalid data</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display error message when UserService fails</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should be validated when the Name value is invalid</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should be validated when the Company value is invalid</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should be validated when the Bio value is invalid</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should be validated when the Location value is invalid</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite passed">
+			<span class="description"> ResetPasswordComponent</span>
+		
+			<div class="specSummary passed">
+			<span class="description">should call api when submiting form</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should not call UserService api with empty password</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display error message when UserService fail</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should be validated when the password value is invalid</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite passed">
+			<span class="description"> SearchUserComponent</span>
+		
+			<div class="specSummary passed">
+			<span class="description">should be no result with empty value</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display users with name infor contains Name search value</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display users with username infor contains Username search value</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display users with email infor match exactly Email search value</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display Not Matching message with no result for search value</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display users with Name, Username, Email information</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should display error message when UserService.search fails</span>
+			</div>
+		
+			<div class="specSummary passed">
+			<span class="description">should search normal with specical character in search value</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite failed">
+			<span class="description">Vr360SweepSettingComponent</span>
+		
+			<div class="specSummary failed">
+			<span class="description">should create</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite failed">
+			<span class="description">Vr360DetailsComponent</span>
+		
+			<div class="specSummary failed">
+			<span class="description">should create</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite failed">
+			<span class="description">MediaDialogComponent</span>
+		
+			<div class="specSummary failed">
+			<span class="description">should create</span>
+			</div>
+		
+		</div>
+	
+		<div class="suite passed">
+			<span class="description">Vr360viewComponent</span>
+		
+			<div class="specSummary passed">
+			<span class="description">should create</span>
+			</div>
+		
+		</div>
+	
+</div>
+
+<div id="details">
+	
+	
+	<div class="specDetail failed">
+		<span class="description"> AppComponent shoul call AppComponent.logout when clicking log out url</span>
+		<div class="stackTrace">
+			<div class="resultMessage">Expected spy logout to have been called.
+Error: Failed expectation
+    at http://localhost:9876/_karma_webpack_/src/app/app.component.spec.ts:72:31
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:359:1)
+    at FakeAsyncTestZoneSpec.push../node_modules/zone.js/dist/fake-async-test.js.FakeAsyncTestZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/fake-async-test.js:507:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/proxy.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/proxy.js:126:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:358:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:124:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:855:1
+    at ZoneDelegate.invokeTask (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:391:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/proxy.js.ProxyZoneSpec.onInvokeTask (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/proxy.js:160:1)</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="specDetail failed">
+		<span class="description">Vr360SweepSettingComponent should create</span>
+		<div class="stackTrace">
+			<div class="resultMessage">'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;gFor=&quot;let tag of tags&quot;&gt;
+        &lt;button mat-icon-button (click)=&quot;navigateToTag(tag.sid)&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;info&lt;/mat-icon&gt;
+          {{tag.label}}
+        &lt;/button&gt;
+&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@12:10
+'mat-list-item' is not a known element:
+1. If 'mat-list-item' is an Angular component, then verify that it is part of this module.
+2. If 'mat-list-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+    &lt;/div&gt;
+    &lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+      [ERROR -&gt;]&lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+        &lt;button mat-icon-button (click)=&quot;navigateToTag(tag.s&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@10:6
+'mat-nav-list' is not a known element:
+1. If 'mat-nav-list' is an Angular component, then verify that it is part of this module.
+2. If 'mat-nav-list' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    [ERROR -&gt;]&lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+      &lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+        &lt;butto&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@9:4
+Can't bind to 'vrURL' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'vrURL' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;
+  &lt;div class=&quot;right-column&quot;&gt;
+    &lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+      [ERROR -&gt;][vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@20:6
+Can't bind to 'borderSize' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'borderSize' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;)=&quot;mpSDKLoaded($event)&quot;
+      [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [ERROR -&gt;][borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+      [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+    &lt;div id=&quot;console&quot; class=&quot;&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@20:76
+Can't bind to 'width' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'width' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;vent)&quot;
+      [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [ERROR -&gt;][width]=&quot;'100%'&quot;
+      [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+    &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@20:93
+Can't bind to 'height' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'height' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+      [ERROR -&gt;][height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+    &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+      &lt;div id=&quot;controls&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@21:6
+'app-vr360view' is not a known element:
+1. If 'app-vr360view' is an Angular component, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+  &lt;/div&gt;
+  &lt;div class=&quot;right-column&quot;&gt;
+    [ERROR -&gt;]&lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+      [vrURL]=&quot;'https://my.matterport.com/sho&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@19:4
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('LEFT')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('LEFT')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_left&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;butt&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@26:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;rection('RIGHT')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('RIGHT')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_right&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;but&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@30:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ion('FORWARD')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('FORWARD')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_forward&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;b&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@34:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('BACK')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('BACK')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_back&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;butt&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@38:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;veInDirection('UP')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('UP')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_up&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;b&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@42:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('DOWN')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('DOWN')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_down&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@46:10
+Error: Template parse errors:
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1),Error: Template parse errors:
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;gFor=&quot;let tag of tags&quot;&gt;
+        &lt;button mat-icon-button (click)=&quot;navigateToTag(tag.sid)&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;info&lt;/mat-icon&gt;
+          {{tag.label}}
+        &lt;/button&gt;
+&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@12:10
+'mat-list-item' is not a known element:
+1. If 'mat-list-item' is an Angular component, then verify that it is part of this module.
+2. If 'mat-list-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+    &lt;/div&gt;
+    &lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+      [ERROR -&gt;]&lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+        &lt;button mat-icon-button (click)=&quot;navigateToTag(tag.s&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@10:6
+'mat-nav-list' is not a known element:
+1. If 'mat-nav-list' is an Angular component, then verify that it is part of this module.
+2. If 'mat-nav-list' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    [ERROR -&gt;]&lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+      &lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+        &lt;butto&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@9:4
+Can't bind to 'vrURL' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'vrURL' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;
+  &lt;div class=&quot;right-column&quot;&gt;
+    &lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+      [ERROR -&gt;][vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@20:6
+Can't bind to 'borderSize' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'borderSize' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;)=&quot;mpSDKLoaded($event)&quot;
+      [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [ERROR -&gt;][borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+      [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+    &lt;div id=&quot;console&quot; class=&quot;&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@20:76
+Can't bind to 'width' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'width' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;vent)&quot;
+      [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [ERROR -&gt;][width]=&quot;'100%'&quot;
+      [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+    &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@20:93
+Can't bind to 'height' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'height' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+      [ERROR -&gt;][height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+    &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+      &lt;div id=&quot;controls&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@21:6
+'app-vr360view' is not a known element:
+1. If 'app-vr360view' is an Angular component, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+  &lt;/div&gt;
+  &lt;div class=&quot;right-column&quot;&gt;
+    [ERROR -&gt;]&lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+      [vrURL]=&quot;'https://my.matterport.com/sho&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@19:4
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('LEFT')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('LEFT')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_left&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;butt&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@26:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;rection('RIGHT')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('RIGHT')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_right&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;but&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@30:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ion('FORWARD')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('FORWARD')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_forward&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;b&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@34:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('BACK')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('BACK')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_back&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;butt&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@38:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;veInDirection('UP')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('UP')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_up&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &lt;b&quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@42:10
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('DOWN')&quot; class=&quot;b_moveInDirection&quot;
+          (click)=&quot;moveInDirection('DOWN')&quot;&gt;
+          [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_down&lt;/i&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+        &quot;): ng:///DynamicTestModule/Vr360SweepSettingComponent.html@46:10
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1),Expected undefined to be truthy.
+Error: Failed expectation
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/features/vr360-admin/vr360-sweep-setting/vr360-sweep-setting.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:359:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/proxy.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/proxy.js:129:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:358:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:124:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/jasmine-patch.js:177:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/jasmine-patch.js:192:1)</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="specDetail failed">
+		<span class="description">Vr360DetailsComponent should create</span>
+		<div class="stackTrace">
+			<div class="resultMessage">'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;t tag of tags&quot;&gt;
+            &lt;button mat-icon-button (click)=&quot;navigateToTag(tag.sid)&quot;&gt;
+              [ERROR -&gt;]&lt;mat-icon&gt;info&lt;/mat-icon&gt;
+              {{tag.label}}
+            &lt;/button&gt;
+&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@13:14
+'mat-list-item' is not a known element:
+1. If 'mat-list-item' is an Angular component, then verify that it is part of this module.
+2. If 'mat-list-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+      &lt;div&gt;
+        &lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+          [ERROR -&gt;]&lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+            &lt;button mat-icon-button (click)=&quot;navigateToTag(t&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@11:10
+'mat-nav-list' is not a known element:
+1. If 'mat-nav-list' is an Angular component, then verify that it is part of this module.
+2. If 'mat-nav-list' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+      &lt;/div&gt;
+      &lt;div&gt;
+        [ERROR -&gt;]&lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+          &lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+          &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@10:8
+Can't bind to 'vrURL' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'vrURL' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;   &lt;div class=&quot;right-column&quot;&gt;
+      &lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+        [ERROR -&gt;][vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@22:8
+Can't bind to 'borderSize' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'borderSize' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;&quot;mpSDKLoaded($event)&quot;
+        [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [ERROR -&gt;][borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+        [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+      &lt;div id=&quot;console&quot; cla&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@22:78
+Can't bind to 'width' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'width' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;nt)&quot;
+        [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [ERROR -&gt;][width]=&quot;'100%'&quot;
+        [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+      &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@22:95
+Can't bind to 'height' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'height' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;tps://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+        [ERROR -&gt;][height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+      &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+        &lt;div id=&quot;controls&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@23:8
+'app-vr360view' is not a known element:
+1. If 'app-vr360view' is an Angular component, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+    &lt;/div&gt;
+    &lt;div class=&quot;right-column&quot;&gt;
+      [ERROR -&gt;]&lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+        [vrURL]=&quot;'https://my.matterport.com/s&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@21:6
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ction('LEFT')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('LEFT')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_left&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+          &lt;&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@28:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ion('RIGHT')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('RIGHT')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_right&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+          &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@32:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;'FORWARD')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('FORWARD')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_forward&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@36:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ction('BACK')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('BACK')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_back&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+          &lt;&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@40:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('UP')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('UP')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_up&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@44:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ction('DOWN')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('DOWN')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_down&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+      &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@48:12
+Error: Template parse errors:
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1),Error: Template parse errors:
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;t tag of tags&quot;&gt;
+            &lt;button mat-icon-button (click)=&quot;navigateToTag(tag.sid)&quot;&gt;
+              [ERROR -&gt;]&lt;mat-icon&gt;info&lt;/mat-icon&gt;
+              {{tag.label}}
+            &lt;/button&gt;
+&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@13:14
+'mat-list-item' is not a known element:
+1. If 'mat-list-item' is an Angular component, then verify that it is part of this module.
+2. If 'mat-list-item' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+      &lt;div&gt;
+        &lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+          [ERROR -&gt;]&lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+            &lt;button mat-icon-button (click)=&quot;navigateToTag(t&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@11:10
+'mat-nav-list' is not a known element:
+1. If 'mat-nav-list' is an Angular component, then verify that it is part of this module.
+2. If 'mat-nav-list' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+      &lt;/div&gt;
+      &lt;div&gt;
+        [ERROR -&gt;]&lt;mat-nav-list class=&quot;list-destination&quot;&gt;
+          &lt;mat-list-item *ngFor=&quot;let tag of tags&quot;&gt;
+          &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@10:8
+Can't bind to 'vrURL' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'vrURL' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;   &lt;div class=&quot;right-column&quot;&gt;
+      &lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+        [ERROR -&gt;][vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@22:8
+Can't bind to 'borderSize' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'borderSize' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;&quot;mpSDKLoaded($event)&quot;
+        [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [ERROR -&gt;][borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+        [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+      &lt;div id=&quot;console&quot; cla&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@22:78
+Can't bind to 'width' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'width' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;nt)&quot;
+        [vrURL]=&quot;'https://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [ERROR -&gt;][width]=&quot;'100%'&quot;
+        [height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+      &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@22:95
+Can't bind to 'height' since it isn't a known property of 'app-vr360view'.
+1. If 'app-vr360view' is an Angular component and it has 'height' input, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component. (&quot;tps://my.matterport.com/show/?m=JGPnGQ6hosj&amp;play=1&amp;qs=1'&quot; [borderSize]=&quot;0&quot; [width]=&quot;'100%'&quot;
+        [ERROR -&gt;][height]=&quot;480&quot;&gt;&lt;/app-vr360view&gt;
+      &lt;div id=&quot;console&quot; class=&quot;console&quot;&gt;
+        &lt;div id=&quot;controls&quot;&gt;
+&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@23:8
+'app-vr360view' is not a known element:
+1. If 'app-vr360view' is an Angular component, then verify that it is part of this module.
+2. If 'app-vr360view' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;
+    &lt;/div&gt;
+    &lt;div class=&quot;right-column&quot;&gt;
+      [ERROR -&gt;]&lt;app-vr360view (mpSDKLoadedEvent)=&quot;mpSDKLoaded($event)&quot;
+        [vrURL]=&quot;'https://my.matterport.com/s&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@21:6
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ction('LEFT')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('LEFT')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_left&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+          &lt;&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@28:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ion('RIGHT')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('RIGHT')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_right&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+          &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@32:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;'FORWARD')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('FORWARD')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_forward&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@36:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ction('BACK')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('BACK')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_back&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+          &lt;&quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@40:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;Direction('UP')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('UP')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_up&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@44:12
+'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is part of this module.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;ction('DOWN')&quot; class=&quot;b_moveInDirection&quot;
+            (click)=&quot;moveInDirection('DOWN')&quot;&gt;
+            [ERROR -&gt;]&lt;mat-icon&gt;&lt;i class=&quot;material-icons md-dark&quot;&gt;arrow_drop_down&lt;/i&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+      &quot;): ng:///DynamicTestModule/Vr360DetailsComponent.html@48:12
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1),Expected undefined to be truthy.
+Error: Failed expectation
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/features/vr360/vr360-details/vr360-details.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:359:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/proxy.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/proxy.js:129:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:358:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:124:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/jasmine-patch.js:177:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/jasmine-patch.js:192:1)</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="specDetail failed">
+		<span class="description">MediaDialogComponent should create</span>
+		<div class="stackTrace">
+			<div class="resultMessage">'mat-dialog-content' is not a known element:
+1. If 'mat-dialog-content' is an Angular component, then verify that it is part of this module.
+2. If 'mat-dialog-content' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;&lt;!-- &lt;h2 mat-dialog-title&gt;{{description}}&lt;/h2&gt; --&gt;
+[ERROR -&gt;]&lt;mat-dialog-content class=&quot;modal-content&quot;&gt;
+  
+    &lt;!-- &lt;mat-form-field&gt;
+&quot;): ng:///DynamicTestModule/MediaDialogComponent.html@2:0
+Error: Template parse errors:
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1),Error: Template parse errors:
+'mat-dialog-content' is not a known element:
+1. If 'mat-dialog-content' is an Angular component, then verify that it is part of this module.
+2. If 'mat-dialog-content' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. (&quot;&lt;!-- &lt;h2 mat-dialog-title&gt;{{description}}&lt;/h2&gt; --&gt;
+[ERROR -&gt;]&lt;mat-dialog-content class=&quot;modal-content&quot;&gt;
+  
+    &lt;!-- &lt;mat-form-field&gt;
+&quot;): ng:///DynamicTestModule/MediaDialogComponent.html@2:0
+    at syntaxError (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2175:1)
+    at TemplateParser.parse (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:11388:1)
+    at JitCompiler._parseTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25963:1)
+    at JitCompiler._compileTemplate (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25951:61)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1
+    at Set.forEach (&lt;anonymous&gt;)
+    at JitCompiler._compileComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25895:1)
+    at http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25815:1
+    at Object.then (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:2166:27)
+    at JitCompiler._compileModuleAndAllComponents (http://localhost:9876/_karma_webpack_/node_modules/@angular/compiler/fesm2015/compiler.js:25813:1),Expected undefined to be truthy.
+Error: Failed expectation
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/src/app/shared/components/media-dialog/media-dialog.component.spec.ts:23:23)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:359:1)
+    at ProxyZoneSpec.push../node_modules/zone.js/dist/proxy.js.ProxyZoneSpec.onInvoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/proxy.js:129:1)
+    at ZoneDelegate.invoke (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:358:1)
+    at Zone.run (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/zone-evergreen.js:124:1)
+    at runInTestZone (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/jasmine-patch.js:177:1)
+    at UserContext.&lt;anonymous&gt; (http://localhost:9876/_karma_webpack_/node_modules/zone.js/dist/jasmine-patch.js:192:1)</div>
+		</div>
+	</div>
+	
+	
+</div>
+</body>
+</html>
+
