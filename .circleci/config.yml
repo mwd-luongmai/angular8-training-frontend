@@ -1,0 +1,191 @@
+version: 2.1
+executors:
+  my-executor:
+    docker:
+      - image: cimg/node:14.17.0-browsers
+    working_directory: ~/angular8-training
+jobs:
+    setup-enviroment:
+        executor: my-executor
+        steps:
+            # Checkout the code from the branch into the working_directory
+            - checkout
+            # Log the current branch
+            - run:
+                name: Show current branch
+                command: echo ${CIRCLE_BRANCH}
+            # Restore local dependencies from cache
+            - restore_cache:
+                keys:
+                - v1-dependencies-{{ checksum "package.json" }}
+                - v1-dependencies-
+            # Install project dependencies
+            - run:
+                name: Install local dependencies
+                command: |
+                  sudo npm i npm@6.14.13 -g
+                  npm install
+            - run:
+                name: Build Sass
+                command: npm install sass
+            # Cache local dependencies if they don't exist
+            - save_cache:
+                key: v1-dependencies-{{ checksum "package.json" }}
+                paths:
+                    - node_modules
+            - persist_to_workspace:
+                # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+                # taken to be the root directory of the workspace.
+                root: .
+                # Must be relative path from root
+                paths:
+                    - src
+                    - package.json
+                    - angular.json
+                    - Dockerfile
+                    - tslint.json
+                    - tsconfig.json
+    code-checking:
+        executor: my-executor
+        steps:
+            - attach_workspace:
+                at: ~/angular8-training
+            # Restore local dependencies from cache
+            - restore_cache:
+                keys:
+                - v1-dependencies-{{ checksum "package.json" }}
+                - v1-dependencies-
+            # Lint the source code
+            - run:
+                name: Linting
+                command: npm run lint
+    unit-test:
+        executor: my-executor
+        steps:
+            - attach_workspace:
+                at: ~/angular8-training
+            # Restore local dependencies from cache
+            - restore_cache:
+                keys:
+                - v1-dependencies-{{ checksum "package.json" }}
+                - v1-dependencies-
+            # Test the source code
+            - run:
+                name: Testing
+                command: npm run test 
+    # The build job
+    build:
+        executor: my-executor
+        steps:
+            - attach_workspace:
+                at: ~/angular8-training
+            # Restore local dependencies from cache
+            - restore_cache:
+                keys:
+                - v1-dependencies-{{ checksum "package.json" }}
+                - v1-dependencies-
+            # Build project with different configuration based on
+            # the current branch
+            - run:
+                name: Building
+                command: |
+                    if [[ "${CIRCLE_BRANCH}" == "staging-"* ]]; then
+                      npm run build-gh
+                    elif [ "${CIRCLE_BRANCH}" == "master" ]; then
+                      npm run build-gh
+                    else
+                      npm run build-gh
+                    fi
+            # Cache the dist folder for the deploy job
+            - save_cache:
+                key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+                paths:
+                    - dist
+            - persist_to_workspace:
+                # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+                # taken to be the root directory of the workspace.
+                root: .
+                # Must be relative path from root
+                paths:
+                    - dist
+    # The deploy job
+    deploy-stage:
+        executor: my-executor
+        steps:
+            - attach_workspace:
+                # Must be absolute path or relative path from working_directory
+                at: ~/angular8-training
+            - restore_cache:
+                keys:
+                - v1-dependencies-{{ checksum "package.json" }}
+                - v1-dependencies-
+            - run:
+                name: Avoid hosts unknown for github
+                command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+            # Deploy to GitPage
+            - run: git init
+            - run: git config user.name $GH_NAME
+            - run: git config user.email $GH_EMAIL
+            - run: git remote add origin $GH_REPO
+            - run: npm run deploy
+    deploy-prod:
+        executor: my-executor
+        steps:
+            - attach_workspace:
+                # Must be absolute path or relative path from working_directory
+                at: ~/angular8-training
+            - restore_cache:
+                keys:
+                - v1-dependencies-{{ checksum "package.json" }}
+                - v1-dependencies-
+            - run:
+                name: Avoid hosts unknown for github
+                command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+            # Deploy to GitPage
+            - run: git init
+            - run: git config user.name $GH_NAME
+            - run: git config user.email $GH_EMAIL
+            - run: git remote add origin $GH_REPO
+            - run: npm run deploy
+workflows:
+    version: 2
+    commit:
+        jobs:
+            - setup-enviroment:
+                filters:
+                    branches:
+                        ignore:
+                            - gh-pages
+            - code-checking:
+                requires:
+                    - setup-enviroment
+            - unit-test:
+                requires:
+                    - setup-enviroment
+            - build:
+                requires:
+                    - setup-enviroment
+                filters:
+                    branches:
+                        only:
+                            - develop
+                            - staging
+                            - master
+            - hold: # <<< A job that will require manual approval in the CircleCI web application.
+                type: approval # <<< This key-value pair will set your workflow to a status of "On Hold"
+                requires: # We only run the "hold" job when test2 has succeeded
+                    - build
+            # On approval of the `hold` job, any successive job that requires the `hold` job will run. 
+            # In this case, a user is manually triggering the deploy job.
+            - deploy-stage:
+                requires:
+                    - hold
+                filters:
+                    branches:
+                        only: staging
+            - deploy-prod:
+                requires:
+                    - hold
+                filters:
+                    branches:
+                        only: master

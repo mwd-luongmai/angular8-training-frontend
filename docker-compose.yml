@@ -1,0 +1,13 @@
+version: '2'
+services:
+  aut:
+    build:
+      context: .
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+networks:
+  backend:

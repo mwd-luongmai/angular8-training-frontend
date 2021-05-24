@@ -1,0 +1,16 @@
+<!-- <div *ngFor="let lang of languages">
+  <span *ngIf="lang.code !== localeId">
+    <img class="language-flag" src="{{lang.src}}" height="20" width="30"><a (click)="onSetLanguage(lang.code)">{{lang.label}}</a>
+  </span>
+  <span *ngIf="lang.code === localeId">{{lang.label}} </span>
+</div> -->
+<select id="change-language" (change)="onSetLanguage($event.target.value)">
+  <option
+    *ngFor="let lang of languages"
+    [value]="lang.code"
+    [selected]="lang.code === currLocale"
+    ><img class="language-flag" src="{{ lang.src }}" height="20" width="30" />{{
+      lang.label
+    }}</option
+  >
+</select>

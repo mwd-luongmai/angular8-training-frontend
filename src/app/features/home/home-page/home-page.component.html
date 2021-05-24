@@ -1,0 +1,35 @@
+<div class="flex-comp-container">
+  <div class="flex-comp-item">
+    <div class="person-grid-container">
+      <mat-card class="person-card-item" *ngFor="let user of users">
+        <mat-card-header>
+          <mat-card-title>{{ user.name }}</mat-card-title>
+          <mat-card-subtitle
+            >{{ user.username }} (<span *ngIf="user.active; else inActive" i18n
+              >Active</span
+            >)<ng-template #inActive><span i18n>Inactive</span></ng-template>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img
+          class="person-avatar"
+          mat-card-image
+          src="assets/image/default-avatar.png"
+          alt="Avatar"
+        />
+        <mat-card-content></mat-card-content>
+        <mat-card-actions>
+          <a
+            mat-button
+            color="warn"
+            *ngIf="user.active"
+            (click)="deactivateUser(user.id)"
+            class="text-warning"
+          >
+            <mat-icon><i class="material-icons md-dark">block</i></mat-icon
+            ><ng-container i18n>Deactivate</ng-container>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

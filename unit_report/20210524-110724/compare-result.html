@@ -1,0 +1,79 @@
+<html>
+<head>
+<style>
+body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
+.flex-comp-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+.half {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 50%;
+}
+
+.half li {
+	margin-bottom: 10px;
+}
+
+.half li label {
+	font-weight: bold;
+}
+
+</style>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+ <script>
+	 $(document).ready(function() {
+		new Chart(document.getElementById("pie-chart-baseline"), {
+			type: 'pie',
+			data: {
+			  labels: ["Passed", "Skipped", "Failed"],
+			  datasets: [{
+				label: "",
+				backgroundColor: ["#3e95cd", "#8e5ea2","#c45850"],
+				data: [26,0,4]
+			  }]
+			}
+		});
+
+		new Chart(document.getElementById("pie-chart-current"), {
+			type: 'pie',
+			data: {
+			  labels: ["Passed", "Skipped", "Failed"],
+			  datasets: [{
+				label: "",
+				backgroundColor: ["#3e95cd", "#8e5ea2","#c45850"],
+				data: [2,0,0]
+			  }]
+			}
+		});
+	 });
+ </script>
+</head>
+<body>
+	<div class='flex-comp-container'>
+		<div id='baseline' class='half'>
+			<canvas id="pie-chart-baseline"></canvas>
+			<ul>
+				<li><label>Test Enviroment: </label>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/78.0.3882.0 Safari/537.36</li>
+				<li><label>Date Time: </label>2021-05-18T07:51:34</li>
+				<li><label>Total of TCs: </label>30</li>
+			</ul>
+			<iframe width='100%' height='100%' frameBorder="0" src="file:////Users/luong.mai/MWD-WORK/TRAINING/ANGULAR_8_TRAINING/Source/mwd-swatang-fe/unit_report/20210518-025137/index.html"></iframe>
+		</div>
+		<div id='current' class='half'>
+			<canvas id="pie-chart-current"></canvas>
+			<ul>
+				<li><label>Test Enviroment: </label>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/78.0.3882.0 Safari/537.36</li>
+				<li><label>Date Time: </label>2021-05-24T04:07:22</li>
+				<li><label>Total of TCs: </label>2</li>
+			</ul>
+			<iframe width='100%' height='100%'  frameBorder="0" src="file:////Users/luong.mai/MWD-WORK/TRAINING/ANGULAR_8_TRAINING/Source/mwd-swatang-fe/unit_report/20210524-110724/index.html"></iframe>
+		</div>
+	</div>
+</body>
+</html>
+

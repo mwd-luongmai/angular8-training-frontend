@@ -1,0 +1,250 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-title {
+  text-transform: uppercase;
+  text-align: right;
+}
+
+form {
+  mat-icon {
+    margin-right: 10px;
+  }
+}
+
+.success-snackbar {
+  color: white;
+  background: #2196f3;
+}
+
+.error-snackbar {
+  color: white;
+  background: #f44336;
+}
+
+.error-snackbar button {
+  color: black;
+}
+
+// VR360 Sweep Page
+
+.map-container {
+  position: relative;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 400px;
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .map:after {
+    padding-top: 5%;
+    /* 16:9 ratio */
+    display: block;
+    content: '';
+  }
+
+  .map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 10px;
+  }
+
+  .map .sweep,
+  .map .sweep:visited {
+    color: transparent;
+    display: inline-block;
+    position: absolute;
+    padding: 0 0;
+    margin: 0;
+    height: 0.4rem;
+    width: 0.4rem;
+    border: 0.25rem solid rgba(255, 255, 0, 0.79);
+    border-radius: 50%;
+    box-sizing: content-box;
+    background-color: transparent;
+    font-size: 10px;
+  }
+}
+
+.vr-details-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.sweep.active {
+  background-color: orangered;
+  border: 0.25rem solid rgba(255, 255, 0, 0.79);
+}
+
+.sweep:hover {
+  background-color: rgba(255, 255, 0, 0.79);
+}
+
+.list-destination {
+  display: inline;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  /* add your styles */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: black;
+  width: 700px;
+  height: 500px;
+}
+
+.submit-buttons {
+  float: right;
+  button {
+    margin-right: 10px;
+  }
+}
+
+.console {
+  padding: 5px;
+}
+
+// Media Query Responsive
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  //CSS
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  //CSS
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  //CSS
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  //CSS
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .themes {
+    text-align: right;
+    margin-top: 65px;
+  }
+
+  // .list-destination{ display: none !important;}
+
+  .map-container {
+    position: relative;
+    margin: 0px;
+    margin-bottom: 10px;
+    width: 400px;
+    height: 200px;
+  }
+
+  .left-column {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    order: 1;
+  }
+
+  .submit-buttons {
+    width: 100%;
+    button {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .console {
+    text-align: center;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .themes {
+    text-align: right;
+    margin-top: 65px;
+  }
+
+  // .list-destination{ display: none !important;}
+
+  .map-container {
+    position: relative;
+    margin: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 200px;
+  }
+
+  .left-column {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    order: 1;
+  }
+
+  .submit-buttons {
+    width: 100%;
+    button {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .console {
+    text-align: center;
+  }
+}

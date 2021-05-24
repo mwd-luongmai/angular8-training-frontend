@@ -1,0 +1,41 @@
+<div class="flex-comp-container">
+  <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form-input
+          formControlName="username"
+          [errors]="f.username.errors"
+          [errorVisible]="submitted"
+          [placeholder]="'Username or Email'"
+          [icon]="'email'"
+        ></form-input>
+
+        <form-input
+          formControlName="password"
+          [type]="'password'"
+          [errors]="f.password.errors"
+          [errorVisible]="submitted"
+          [placeholder]="'Password'"
+          [icon]="'lock'"
+        ></form-input>
+
+        <button mat-raised-button [disabled]="loading" color="primary">
+          <mat-icon><i class="material-icons md-dark">done</i></mat-icon>
+          Login
+        </button>
+        <a mat-button routerLink="/users/register" class="btn btn-link">
+          <mat-icon><i class="material-icons md-dark">person_add</i></mat-icon>
+          Register
+        </a>
+        <a mat-button routerLink="/users/forgot-password" class="btn btn-link">
+          <mat-icon
+            ><i class="material-icons md-dark">contact_support</i></mat-icon
+          >
+          Forgot Password
+        </a>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <app-loading [visible]="loading"></app-loading>
+</div>

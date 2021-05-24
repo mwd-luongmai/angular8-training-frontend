@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="themeName" datatype="html">
+        <source>dummy <x id="ICU" equiv-text="{t.id, select, default-theme {...}}"/></source>
+        <target><x id="ICU" equiv-text="{t.id, select, default-theme {...}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/change-theme/change-theme.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6cace3d84ff82ccd0b82f38f46d0f89159a054d6" datatype="html">
+        <source>{VAR_SELECT, select, default-theme {tname} }</source>
+        <target>{VAR_SELECT, select, default-theme {Default Theme} dark-theme {Dark Theme} light-theme {Light Theme}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/components/change-theme/change-theme.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bbc8f53f2aec142586628fa4d3ed63f6171a0448" datatype="html">
+        <source>VR 360</source>
+        <target>VR 360</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">logo text</note>
+      </trans-unit>
+      <trans-unit id="vr360detailMenu" datatype="html">
+        <source>VR 360 Detail</source>
+        <target>VR 360 Detail</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b5803ef8e027f0962ff2c63153577e8f71ec2a4d" datatype="html">
+        <source>VR 360 Sweep Setting</source>
+        <target>VR 360 Sweep Setting</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="hi-en" datatype="html">
+        <source>Hi </source>
+        <target>Hi </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="hi-ja" datatype="html">
+        <source>Hi </source>
+        <target></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout-link" datatype="html">
+        <source>Log out</source>
+        <target>Log out</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">header logout link</note>
+      </trans-unit>
+      <trans-unit id="b36e1450940b7f6028d8587568c7d669b53f7a06" datatype="html">
+        <source>Active</source>
+        <target>Active</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/home/home-page/home-page.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="43c4133c7a0263d2e33dd4c2e74d40784b2e4b1c" datatype="html">
+        <source>Inactive</source>
+        <target>Inactive</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/home/home-page/home-page.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c95505b5a74151a0c235b19b9c41db7983205ba7" datatype="html">
+        <source>Deactivate</source>
+        <target>Deactivate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/home/home-page/home-page.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="53ad3c1256487d3686556f37cbb120b64855c9e6" datatype="html">
+        <source>LEFT</source>
+        <target>LEFT</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/vr360/vr360-details/vr360-details.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0aa5fefc418b95ff0d711d6daeba953a0088e965" datatype="html">
+        <source>RIGHT</source>
+        <target>RIGHT</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/vr360/vr360-details/vr360-details.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="63124e065ac6a47929045e38a0f5acc2d0f4f5a2" datatype="html">
+        <source>FORWARD</source>
+        <target>FORWARD</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/vr360/vr360-details/vr360-details.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b0ff926f8a9440093ff25f43f53692c4b90d0d26" datatype="html">
+        <source>BACKWARD</source>
+        <target>BACKWARD</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/vr360/vr360-details/vr360-details.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9f83599e7b9613378f9fdfadc26446ec17eee701" datatype="html">
+        <source>UP</source>
+        <target>UP</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/vr360/vr360-details/vr360-details.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6043652b2edaaf7c290c686721eaff9ee716fecf" datatype="html">
+        <source>DOWN</source>
+        <target>DOWN</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/features/vr360/vr360-details/vr360-details.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
