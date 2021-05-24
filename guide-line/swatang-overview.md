@@ -476,3 +476,4 @@ We are using CircleCI and docker compose (docker-compose.yml and .Dockerfile) to
 - With any changes (git push, merge ...) on master branch will trigger CI jobs **setup-enviroment**, **code checking** and **e2e-test** from Circle CI site to setup test enviroment and run e2e test scripts.
 6. View report
 - Open `Artifacts` tab from a `e2e-test` build to review test report after this build is completed.
+
