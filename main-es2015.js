@@ -376,7 +376,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 const AppConfig = {
-    API_URL: 'http://localhost:4000',
+    API_URL: 'https://swatang-api.herokuapp.com/',
     MatterpostSDKKey: 'db4d6653-164a-4cfc-87d5-4f38e0756512',
     MatterpostSDKVersion: '3.0'
 };
