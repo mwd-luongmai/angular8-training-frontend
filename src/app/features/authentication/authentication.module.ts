@@ -6,9 +6,11 @@ import { AuthenticationRoutingModule } from './authentication-routing.module'
 import { LoginComponent } from './login/login.component'
 import { SharedModule } from '@app/shared'
 import { CustomMaterialModule } from '@app/core'
+import { ResetPasswordComponent } from './reset-password/reset-password.component'
+import { ResetPasswordConfirmComponent } from './reset-password-confirm/reset-password-confirm.component'
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, ResetPasswordComponent, ResetPasswordConfirmComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
