@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3e2e81d (implement delete account and tests)
 import { UserRoutingModule } from './user-routing.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
