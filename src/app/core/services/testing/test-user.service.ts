@@ -30,6 +30,14 @@ export class TestUserService extends UserService {
   }): Observable<string> {
     return asyncData('')
   }
+  delete(id:string): Observable<string> {
+    return asyncData('{"message":"Password is incorrect."}')
+  }
+  deleteAccount(id: string, password: string) {
+    if (password==="wrongP@sswo3d")
+  return asyncData(Error('Password is incorrect.'))
+    return this.delete(id);
+  }
 
   search(keyword: string, method: string): Observable<User[]> {
     let users = [] as User[]
