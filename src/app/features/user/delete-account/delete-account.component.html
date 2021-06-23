@@ -1,0 +1,36 @@
+<div class="flex-comp-container">
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-title>Delete Account</mat-card-title>
+      <mat-card-content>
+        <p>
+          Hi <b>{{ currentUser.name }}</b
+          >, you are requesting to delete your account.
+        </p>
+        <p>You have to confirm your password to continue the request.</p>
+        <p>The request can not be undone.</p>
+        <br />
+
+        <form-input
+          formControlName="password"
+          [type]="'password'"
+          [errors]="f.password.errors"
+          [errorVisible]="submitted"
+          [placeholder]="'Password'"
+          [icon]="'lock'"
+        ></form-input>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="loading" color="primary">
+          <mat-icon><i class="material-icons md-dark">send</i></mat-icon
+          >Send
+        </button>
+        <a mat-button routerLink="/" class="btn btn-link">
+          <mat-icon><i class="material-icons md-dark">cancel</i></mat-icon
+          >Cancel
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  <app-loading [visible]="loading"></app-loading>
+</div>

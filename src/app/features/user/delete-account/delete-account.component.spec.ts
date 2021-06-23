@@ -6,11 +6,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { UserService, AlertService, CustomMaterialModule } from '@app/core';
 import { AuthenticationService } from '../../../core/services/authentication/authentication.service';
 import { TestAuthenticationService } from '../../../core/services/testing/test-authentication.service';
-import { } from '@app/core/services/testing/test-authentication.service';
 import { TestUserService } from '@app/core/services/testing/test-user.service';
 import { getTestUsers } from '@app/core/models/testing/test-users';
 import { throwError } from 'rxjs';
-import { generateRandomString } from '@app/shared/testing/test-util';
 import { DeleteAccountComponent } from './delete-account.component'
 import { LoginComponent } from '@app/features/authentication/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
