@@ -18,15 +18,16 @@ const appRoutes: Routes = [
   },
   {
     path: 'user',
-    loadChildren:
-      () => import('./features/user/user.module').then(m => m.UserModule),
+
+    loadChildren: () => import('./features/user/user.module').then(m => m.UserModule),
+
   },
   // otherwise redirect to home
   { path: '**', redirectTo: '/home' },
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
+  imports: [RouterModule.forRoot(appRoutes, { useHash: false })],
   exports: [RouterModule],
   providers: [],
 })
