@@ -1,0 +1,26 @@
+<div>
+    <mat-card>
+        <mat-card-title>Register User</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                <form-input formControlName="name" [errors]="formControls.name.errors" [type]="'text'" [errorVisible]="submitted"
+                    [placeholder]="'Name'" [icon]="'account_circle'"></form-input>
+                <form-input formControlName="username" [errors]="formControls.username.errors" [type]="'text'"
+                    [errorVisible]="submitted" [placeholder]="'Username'" [icon]="'person'"></form-input>
+                <form-input formControlName="email" [errors]="formControls.email.errors" [type]="'text'" [errorVisible]="submitted"
+                    [placeholder]="'Email'" [icon]="'email'"></form-input>
+                <form-input formControlName="password" [errors]="formControls.password.errors" [type]="'password'"
+                    [errorVisible]="submitted" [placeholder]="'Password'" [icon]="'password'"></form-input>
+                <button mat-raised-button [disabled]="loading" color="primary">
+                    <mat-icon><i class="material-icons md-dark">done</i></mat-icon>
+                    Sign Up
+                </button>
+                <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btn btn-link" mat-button>
+                    <mat-icon><i class="material-icons md-dark">cancel</i></mat-icon>
+                    Cancel
+                </a>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <app-loading [visible]="loading"></app-loading>
+</div>
