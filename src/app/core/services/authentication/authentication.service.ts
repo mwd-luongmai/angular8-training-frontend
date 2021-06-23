@@ -9,6 +9,8 @@ import { ApiService } from '../api/api.service'
 const routes = {
   login: '/users/authenticate',
   logout: '/users/logout',
+  forgotPassWord: '/users/forgot-password',
+  resetPassword: '/users/reset-password'
 }
 
 @Injectable({ providedIn: 'root' })
@@ -61,4 +63,12 @@ export class AuthenticationService {
       JSON.parse(localStorage.getItem('currentUser'))
     )
   }
+
+  forgotPassWord(email: string, url: string) {
+      return this.apiService.post(routes.forgotPassWord, { email,  url});
+  }
+
+  resetPassWord(resetToken: string, password: string) {
+    return this.apiService.post(routes.resetPassword, { resetToken,  password});
+}
 }
