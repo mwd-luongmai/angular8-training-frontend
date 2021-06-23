@@ -5,7 +5,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { CustomMaterialModule } from '../../core/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { importType } from '@angular/compiler/src/output/output_ast';
+import { NgModule } from '@angular/core';
 
 
 @NgModule({
