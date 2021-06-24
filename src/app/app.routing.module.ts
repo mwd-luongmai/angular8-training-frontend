@@ -18,9 +18,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'user',
-
     loadChildren: () => import('./features/user/user.module').then(m => m.UserModule),
-
   },
   // otherwise redirect to home
   { path: '**', redirectTo: '/home' },

@@ -17,7 +17,6 @@ import { NgModule } from '@angular/core';
     CustomMaterialModule,
     ReactiveFormsModule,
     FormsModule
-
   ]
 })
 export class UserModule { }

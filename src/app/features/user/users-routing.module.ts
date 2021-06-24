@@ -4,7 +4,6 @@ import { AuthGuard } from '@app/core/guards'
 import { DeleteAccountComponent } from './delete-account/delete-account.component'
 
 const routes: Routes = [
-
   {
     path: '',
     children: [
