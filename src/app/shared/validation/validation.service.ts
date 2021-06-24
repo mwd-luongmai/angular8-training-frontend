@@ -54,8 +54,8 @@ export class ValidationService {
   }
 
   matchPasswords(group: FormGroup) {
-    let pass = group.controls.password.value;
-    let confirmPass = group.controls.confirmPassword.value;
+    const pass = group.controls.password.value;
+    const confirmPass = group.controls.confirmPassword.value;
     return pass === confirmPass ? null : { notSame: true }
   }
 }

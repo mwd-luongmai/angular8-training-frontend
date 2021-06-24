@@ -1,17 +1,14 @@
 import {
-  FormControl,
-  Validators,
   FormGroup,
   FormBuilder,
 } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
 
 import { AlertService, UserService } from "@core/services";
 import { FieldSpecs } from "@app/shared/validation/field-spec";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "forgot-password",
+  selector: "app-forgot-password",
   templateUrl: "forgot-password.component.html",
   styleUrls: ["forgot-password.component.scss"],
 })
@@ -23,8 +20,6 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
     private userService: UserService,
     private alertService: AlertService
   ) {}

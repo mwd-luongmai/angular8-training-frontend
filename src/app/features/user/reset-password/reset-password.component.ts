@@ -1,5 +1,5 @@
 import { Component,OnInit } from "@angular/core";
-import { FormControl, Validators, FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder } from "@angular/forms";
 import { ActivatedRoute, Router } from '@angular/router'
 
 
@@ -8,7 +8,7 @@ import { FieldSpecs } from '@app/shared/validation/field-spec'
 import { ValidationService } from '@app/shared/validation/validation.service'
 
 @Component({
-  selector: 'reset-password',
+  selector: 'app-reset-password',
   templateUrl: 'reset-password.component.html',
   styleUrls: ['reset-password.component.scss'],
 })

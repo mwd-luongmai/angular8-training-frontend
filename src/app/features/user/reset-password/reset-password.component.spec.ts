@@ -82,15 +82,14 @@ describe('ResetPasswordComponent', () => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService)
     const alertServiceSpy = fixture.debugElement.injector.get(AlertService);
     const alertSuccessSpy = spyOn(alertServiceSpy, 'success').and.callThrough();
-    const resetPassWordSpy = spyOn(userServiceSpy, 'resetPassWord').and.callThrough();
+    const userSpy = spyOn(userServiceSpy, 'resetPassWord').and.callThrough();
     
-   
-   component.formControls.password.setValue('abcd123456')
-     component.formControls.confirmPassword.setValue('abcd123456')
+    component.formControls.password.setValue('abcd123456')
+    component.formControls.confirmPassword.setValue('abcd123456')
     component.onSubmit()
     tick()
 
-    expect(resetPassWordSpy.calls.any()).toBe(true, 'UserService.resetPassWord should be called');
+    expect(userSpy.calls.any()).toBe(true, 'UserService.resetPassWord should be called');
     expect(alertSuccessSpy.calls.any()).toBe(true, 'AlertService.success should be called');
     expect(component.loading).toBe(false, 'Loading status should be false');
     flush()
@@ -118,8 +117,8 @@ describe('ResetPasswordComponent', () => {
     const alertServiceSpy = fixture.debugElement.injector.get(AlertService);
     const alertErrorSpy = spyOn(alertServiceSpy, 'error').and.callThrough();
 
-    component.formControls.password.setValue('123')
-   
+    component.formControls.password.setValue('abcd123456')
+    component.formControls.confirmPassword.setValue('abcd123456')
     component.onSubmit()
     tick()
 

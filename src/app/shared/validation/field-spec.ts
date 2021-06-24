@@ -1,4 +1,4 @@
-import { ValidatorFn, AbstractControl, FormGroup } from '@angular/forms'
+import { ValidatorFn, AbstractControl } from '@angular/forms'
 
 function finalizeValidationResult(result: {
   [key: string]: boolean
