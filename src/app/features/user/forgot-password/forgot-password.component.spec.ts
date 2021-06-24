@@ -9,11 +9,12 @@ import { HomePageComponent } from '@app/features/home/home-page/home-page.compon
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertService } from '@app/core/services';
+
 import { UserService } from '../../../core/services/user/user.service';
 import { TestUserService } from '../../../core/services/testing/test-user.service';
 import { throwError } from 'rxjs';
 
-describe('ResetPasswordComponent', () => {
+describe('ForgotPasswordComponent', () => {
   let component: ForgotPasswordComponent;
   let fixture: ComponentFixture<ForgotPasswordComponent>;
 
@@ -64,13 +65,14 @@ describe('ResetPasswordComponent', () => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService)
     const alertServiceSpy = fixture.debugElement.injector.get(AlertService);
     const alertSuccessSpy = spyOn(alertServiceSpy, 'success').and.callThrough();
-    const userSpy = spyOn(userServiceSpy, 'forgotPassWord').and.callThrough();
+    const forgotSpy = spyOn(userServiceSpy, 'forgotPassWord').and.callThrough();
     
-    component.formControls.email.setValue('test@gmail.com')
+  
+    component.formControls.email.setValue('test123@gmail.com')
     component.onSubmit()
     tick()
 
-    expect(userSpy.calls.any()).toBe(true, 'UserService.forgotPassWord should be called');
+    expect(forgotSpy.calls.any()).toBe(true, 'UserService.forgotPassWord should be called');
     expect(alertSuccessSpy.calls.any()).toBe(true, 'AlertService.success should be called');
     expect(component.loading).toBe(false, 'Loading status should be false');
     flush()

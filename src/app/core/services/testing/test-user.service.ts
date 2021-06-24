@@ -5,8 +5,7 @@ import { Observable } from 'rxjs'
 import { asyncData } from '@app/shared/testing'
 import { getTestUsers } from '@app/core/models/testing/test-users'
 import { SearchMethod } from '@app/shared'
-import { AuthenticationService } from '../authentication/authentication.service'
-import { ApiService } from '../api/api.service'
+
 @Injectable({ providedIn: 'root' })
 export class TestUserService extends UserService {
   testUsers: User[]
@@ -19,15 +18,18 @@ export class TestUserService extends UserService {
   update(user: User): Observable<User> {
     return asyncData(user)
   }
-
-  public forgotPassword(): Observable<string> {
+  forgotPassWord(
+    email: string,
+    url: string
+  ): Observable<string> {
     return asyncData('')
   }
-
-  public resetPassword(): Observable<string> {
+  resetPassWord(
+    password: string,
+    resetToken: string
+  ): Observable<string> {
     return asyncData('')
   }
-
 
   search(keyword: string, method: string): Observable<User[]> {
     let users = [] as User[]
