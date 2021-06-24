@@ -64,4 +64,8 @@ export class TestUserService extends UserService {
     }
     return asyncData(users)
   }
+
+  active(id: string): Observable<string>{
+    return asyncData('')
+  }
 }
