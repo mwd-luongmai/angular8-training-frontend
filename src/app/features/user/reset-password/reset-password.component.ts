@@ -3,9 +3,9 @@ import { FormControl, Validators, FormGroup, FormBuilder } from "@angular/forms"
 import { ActivatedRoute, Router } from '@angular/router'
 
 
-import { AlertService, AuthenticationService } from '@core/services'
+import { AlertService, UserService } from '@core/services'
 import { FieldSpecs } from '@app/shared/validation/field-spec'
-
+import { ValidationService } from '@app/shared/validation/validation.service'
 
 @Component({
   selector: 'reset-password',
@@ -23,8 +23,9 @@ export class ResetPasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private userService: UserService,
+    private alertService: AlertService,
+    private validationService: ValidationService
   ) {
    
   }
@@ -36,13 +37,13 @@ export class ResetPasswordComponent implements OnInit {
     
 
     this.resetPassForm = this.formBuilder.group({
-      password: ['', [FieldSpecs.fieldRequiredValidator('passwordRequired')]],
-      confirmPassword: ['', [FieldSpecs.fieldRequiredValidator('passwordRequired')]],
-    })
+      password: ['', [FieldSpecs.passwordValidator]],
+      confirmPassword: ['', [FieldSpecs.passwordValidator]]
+    },{ validator: this.validationService.matchPasswords })
 
   }
 
-  get f() {
+  get formControls() {
     return this.resetPassForm.controls
   }
 
@@ -54,11 +55,14 @@ export class ResetPasswordComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.resetPassWord(this.resetToken, this.f.password.value).subscribe(
+    this.userService.resetPassWord(this.resetToken, this.formControls.password.value).subscribe(
       (re) => {
         this.loading = false;
         this.submitted = false;
         this.alertService.success("Your password has been reseted successfully!");
+        setTimeout(() => {
+          this.router.navigate(['/'])
+        }, 5000);
       },
       (error) => {
         this.alertService.error(error);

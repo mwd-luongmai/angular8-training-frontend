@@ -6,7 +6,7 @@ import {
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 
-import { AlertService, AuthenticationService } from "@core/services";
+import { AlertService, UserService } from "@core/services";
 import { FieldSpecs } from "@app/shared/validation/field-spec";
 import { Component, OnInit } from "@angular/core";
 
@@ -16,7 +16,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["forgot-password.component.scss"],
 })
 export class ForgotPasswordComponent implements OnInit {
-  resetPassForm: FormGroup;
+  forgotPassForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -25,35 +25,29 @@ export class ForgotPasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
+    private userService: UserService,
     private alertService: AlertService
   ) {}
 
   ngOnInit() {
-
-   
-
-    this.resetPassForm = this.formBuilder.group({
-      email: [
-        "",
-        [FieldSpecs.fieldRequiredValidator("emailRequired"), Validators.email],
-      ],
+    this.forgotPassForm = this.formBuilder.group({
+      email: ['', [FieldSpecs.emailValidator]],
     });
   }
 
-  get f() {
-    return this.resetPassForm.controls;
+  get formControls() {
+    return this.forgotPassForm.controls;
   }
 
   onSubmit() {
     this.submitted = true;
 
-    if (this.resetPassForm.invalid) {
+    if (this.forgotPassForm.invalid) {
       return;
     }
 
     this.loading = true;
-    this.authenticationService.forgotPassWord(this.f.email.value, 'http://localhost').subscribe(
+    this.userService.forgotPassWord(this.formControls.email.value, 'http://localhost').subscribe(
       (re) => {
         this.loading = false;
         this.submitted = false;

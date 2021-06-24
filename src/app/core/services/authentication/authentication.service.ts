@@ -9,8 +9,7 @@ import { ApiService } from '../api/api.service'
 const routes = {
   login: '/users/authenticate',
   logout: '/users/logout',
-  forgotPassWord: '/users/forgot-password',
-  resetPassword: '/users/reset-password'
+  signup: '/users/register'
 }
 
 @Injectable({ providedIn: 'root' })
@@ -47,6 +46,10 @@ export class AuthenticationService {
     )
   }
 
+  signUp(name: string, username: string, email: string, password: string){
+    return this.apiService.post(routes.signup, { name, username, email, password})
+  }
+
   logout() {
     this.apiService.post(routes.logout).subscribe()
     // remove user from local storage to log user out
@@ -64,11 +67,5 @@ export class AuthenticationService {
     )
   }
 
-  forgotPassWord(email: string, url: string) {
-      return this.apiService.post(routes.forgotPassWord, { email,  url});
-  }
 
-  resetPassWord(resetToken: string, password: string) {
-    return this.apiService.post(routes.resetPassword, { resetToken,  password});
-}
 }
