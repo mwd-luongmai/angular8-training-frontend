@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-content>
+        <div *ngIf="loading" style="text-align: center;">
+            <h3>Please wait while we activate your account...</h3>
+        </div>
+        <div *ngIf="isActivated && !loading" style="text-align: center;">
+            <h3>Your account has been activated!</h3>
+            <button mat-raised-button routerLink='/auth/login'>Sign In Now</button>
+        </div>
+        <div *ngIf="!isActivated && !loading" style="text-align: center;">
+            <h3>This activation link is invalid. Please try again.</h3>
+            <button mat-raised-button routerLink='/'>Go Home</button>
+        </div>
+    </mat-card-content>
+</mat-card>

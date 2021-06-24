@@ -7,9 +7,10 @@ import { CustomMaterialModule } from '../../core/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ActiveUserComponent } from './active-user/active-user.component';
 
 @NgModule({
-  declarations: [SignUpComponent, DeleteAccountComponent, ProfileComponent],
+  declarations: [SignUpComponent, DeleteAccountComponent, ActiveUserComponent, ProfileComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
