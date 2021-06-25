@@ -30,7 +30,7 @@ export class DeleteAccountComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private alertService: AlertService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.currentUserSubscription = this.authenticateService.currentUser.subscribe(
@@ -45,10 +45,12 @@ export class DeleteAccountComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.currentUserSubscription.unsubscribe()
+    if (this.currentUserSubscription) {
+      this.currentUserSubscription.unsubscribe()
+    }
   }
 
-  get f() {
+  get formControls() {
     return this.passwordForm.controls
   }
 
@@ -62,12 +64,11 @@ export class DeleteAccountComponent implements OnInit, OnDestroy {
     this.loading = true
 
     this.userService
-      .deleteAccount(this.currentUser.id, this.f.password.value)
+      .deleteAccount(this.currentUser.id, this.formControls.password.value)
       .pipe(first())
       .subscribe(
         _ => {
           this.deleted = true
-          // this.authenticateService.logout();
           this.authenticateService.invalidate()
           this.router.navigate(['/login'])
           this.alertService.success('Your account has been deleted.', true)

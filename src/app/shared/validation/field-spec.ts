@@ -16,13 +16,13 @@ function finalizeValidationResult(result: {
 }
 
 const USER_NAME_MIN_LENGTH = 6
-const USER_NAME_PATTERN = new RegExp('^[a-zA-Z0-9]+$')
+const USER_NAME_PATTERN = new RegExp(/^[a-zA-Z0-9]+$/)
 const NAME_MAX_LENGTH = 50
 const COMPANY_MAX_LENGTH = 50
-const EMAIL_PATTERN = new RegExp('^[^@]+@[^@]+$')
+const EMAIL_PATTERN = new RegExp(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/)
 const PASSWORD_MIN_LENGTH = 8
-const PASSWORD_NONALPHABETIC_PATTERN = new RegExp('[^a-zA-Z]+')
-const PASSWORD_ALPHABETIC_PATTERN = new RegExp('[a-zA-Z]{4,}')
+const PASSWORD_NONALPHABETIC_PATTERN = new RegExp(/[^a-zA-Z]+/)
+const PASSWORD_ALPHABETIC_PATTERN = new RegExp(/[a-zA-Z]{4,}/)
 const PROFILE_LOCATION_MAX_LENGTH = 100
 const BIO_MAX_LENGTH = 255
 

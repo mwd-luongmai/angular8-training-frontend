@@ -18,24 +18,29 @@ export class TestUserService extends UserService {
   update(user: User): Observable<User> {
     return asyncData(user)
   }
+  
   forgotPassword(emailObject: {
     email: string
     url: string
   }): Observable<string> {
     return asyncData('')
   }
+
   resetPassword(passwordObject: {
     password: string
     resetToken: string
   }): Observable<string> {
     return asyncData('')
   }
-  delete(id:string): Observable<string> {
+
+  delete(id: string): Observable<string> {
     return asyncData('{"message":"Password is incorrect."}')
   }
+
   deleteAccount(id: string, password: string) {
-    if (password==="wrongP@sswo3d")
-  return asyncData(Error('Password is incorrect.'))
+    if (password === "wrongP@sswo3d") {
+      return asyncData(Error('Password is incorrect.'))
+    }
     return this.delete(id);
   }
 

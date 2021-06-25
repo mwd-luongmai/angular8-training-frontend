@@ -9,6 +9,7 @@ import { ApiService } from '../api/api.service'
 const routes = {
   login: '/users/authenticate',
   logout: '/users/logout',
+  signup: '/users/register'
 }
 
 @Injectable({ providedIn: 'root' })
@@ -43,6 +44,10 @@ export class AuthenticationService {
         return user
       })
     )
+  }
+
+  signUp(name: string, username: string, email: string, password: string){
+    return this.apiService.post(routes.signup, { name, username, email, password})
   }
 
   logout() {
