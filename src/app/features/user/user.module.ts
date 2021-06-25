@@ -5,11 +5,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SharedModule } from '../../shared/shared.module';
 import { CustomMaterialModule } from '../../core/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
 
 
 @NgModule({
-  declarations: [SignUpComponent],
+  declarations: [SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

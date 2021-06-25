@@ -1,4 +1,4 @@
-import { AbstractControl, ValidatorFn, Validators } from '@angular/forms'
+import { AbstractControl, ValidatorFn, Validators, FormGroup } from '@angular/forms'
 
 export class FieldValidators {
   constructor() {}
@@ -36,11 +36,12 @@ export class FieldValidators {
 
   static matchPassword(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
-      const password = control.get('newpassword').value
-      const confirmPassword = control.get('confirmpassword').value
+      console.log(control);
+      const password = control.get('password').value
+      const confirmPassword = control.get('confirmPassword').value
       const isValid = password === confirmPassword
       if (!isValid) {
-        control.get('confirmpassword').setErrors({ matchPassword: true })
+        control.get('confirmPassword').setErrors({ matchPassword: true })
       }
       return isValid ? null : { matchPassword: { value: confirmPassword } }
     }
@@ -52,5 +53,11 @@ export class FieldValidators {
 
   static username(): ValidatorFn {
     return Validators.pattern('^[a-zA-Z0-9]+$')
+  }
+
+  static matchPasswords(group: FormGroup) {
+    const pass = group.controls.password.value;
+    const confirmPass = group.controls.confirmPassword.value;
+    return pass === confirmPass ? null : { notSame: true }
   }
 }
