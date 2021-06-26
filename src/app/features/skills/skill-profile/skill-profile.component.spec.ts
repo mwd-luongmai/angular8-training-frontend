@@ -16,14 +16,14 @@ describe('SkillProfileComponent', () => {
   let component: SkillProfileComponent;
   let fixture: ComponentFixture<SkillProfileComponent>;
 
-  let routerSub: Partial<Router> = {
+  const routerSub: Partial<Router> = {
     navigate(commands: any[], extras?: NavigationExtras): Promise<boolean> {
       return new Promise(()=>{
         return true;
       });
     }
   };
-  let alertServiceSub: Partial<AlertService> = {
+  const alertServiceSub: Partial<AlertService> = {
     success() {
     }
   };
@@ -63,10 +63,10 @@ describe('SkillProfileComponent', () => {
 
   it('should not show error message when render component', fakeAsync(() => {
     fixture.detectChanges();
-    let skillNameError = fixture.nativeElement.querySelector('#skill-name validation-messages');
+    const skillNameError = fixture.nativeElement.querySelector('#skill-name validation-messages');
     expect(skillNameError).toBeNull();
 
-    let skillSchemaError = fixture.nativeElement.querySelector('#skill-schema-name validation-messages');
+    const skillSchemaError = fixture.nativeElement.querySelector('#skill-schema-name validation-messages');
     expect(skillSchemaError).toBeNull();
   }));
   
@@ -75,21 +75,21 @@ describe('SkillProfileComponent', () => {
     component.onSubmit();
     fixture.detectChanges();
     
-    let skillNameError = fixture.nativeElement.querySelector('#skill-name validation-messages');
+    const skillNameError = fixture.nativeElement.querySelector('#skill-name validation-messages');
     expect(skillNameError.textContent).toContain('Skill name is required.');
 
-    let skillSchemaError = fixture.nativeElement.querySelector('#skill-schema-name validation-messages');
+    const skillSchemaError = fixture.nativeElement.querySelector('#skill-schema-name validation-messages');
     expect(skillSchemaError.textContent).toContain('Skill schema name is required.');
   }));
 
   it('should show error message when empty skill skill level', fakeAsync(() => {
     fixture.detectChanges();
 
-    let skillNameInput = fixture.nativeElement.querySelector('#skill-name input');
+    const skillNameInput = fixture.nativeElement.querySelector('#skill-name input');
     skillNameInput.value = 'this is kill name';
     skillNameInput.dispatchEvent(new Event('input'));
 
-    let skillSchemaInput = fixture.nativeElement.querySelector('#skill-schema-name input');
+    const skillSchemaInput = fixture.nativeElement.querySelector('#skill-schema-name input');
     skillSchemaInput.value = 'this is skill schema name';
     skillSchemaInput.dispatchEvent(new Event('input'));
     
@@ -97,13 +97,13 @@ describe('SkillProfileComponent', () => {
     component.onSubmit();
     fixture.detectChanges();
 
-    let skillNameError = fixture.nativeElement.querySelector('#skill-name validation-messages');
+    const skillNameError = fixture.nativeElement.querySelector('#skill-name validation-messages');
     expect(skillNameError).toBeNull();
 
-    let skillSchemaError = fixture.nativeElement.querySelector('#skill-schema-name validation-messages');
+    const skillSchemaError = fixture.nativeElement.querySelector('#skill-schema-name validation-messages');
     expect(skillSchemaError).toBeNull();
 
-    let fromError = fixture.nativeElement.querySelector('#form-error validation-messages');
+    const fromError = fixture.nativeElement.querySelector('#form-error validation-messages');
     expect(fromError.textContent).toContain('Skill level is required')
 
   }))
@@ -118,7 +118,7 @@ describe('SkillProfileComponent', () => {
     expect(skillLevelDescription).toBeNull();
     
     
-    let addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
+    const addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
     addSkillButton.click();
     tick();
     fixture.detectChanges();
@@ -179,21 +179,21 @@ describe('SkillProfileComponent', () => {
     // Make the spy return a synchronous Observable with the test data
     fixture.detectChanges();
 
-    let skillNameInput = fixture.nativeElement.querySelector('#skill-name input');
+    const skillNameInput = fixture.nativeElement.querySelector('#skill-name input');
     skillNameInput.value = 'this is kill name';
     skillNameInput.dispatchEvent(new Event('input'));
 
-    let skillSchemaInput = fixture.nativeElement.querySelector('#skill-schema-name input');
+    const skillSchemaInput = fixture.nativeElement.querySelector('#skill-schema-name input');
     skillSchemaInput.value = 'this is skill schema name';
     skillSchemaInput.dispatchEvent(new Event('input'));
 
-    let addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
+    const addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
     addSkillButton.click();
     fixture.detectChanges();
     tick();
     discardPeriodicTasks()
 
-    let skill: Skill = component.convertFormDataToSkill(component.skillProfile.value);
+    const skill: Skill = component.convertFormDataToSkill(component.skillProfile.value);
     let createSkillProfileSpy = skillService.createSkillProfile.and.returnValue(of(skill));
 
     tick();
@@ -207,21 +207,21 @@ describe('SkillProfileComponent', () => {
     // Make the spy return a synchronous Observable with the test data
     fixture.detectChanges();
 
-    let skillNameInput = fixture.nativeElement.querySelector('#skill-name input');
+    const skillNameInput = fixture.nativeElement.querySelector('#skill-name input');
     skillNameInput.value = 'this is kill name';
     skillNameInput.dispatchEvent(new Event('input'));
 
-    let skillSchemaInput = fixture.nativeElement.querySelector('#skill-schema-name input');
+    const skillSchemaInput = fixture.nativeElement.querySelector('#skill-schema-name input');
     skillSchemaInput.value = 'this is skill schema name';
     skillSchemaInput.dispatchEvent(new Event('input'));
 
-    let addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
+    const addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
     addSkillButton.click();
     fixture.detectChanges();
     tick();
     discardPeriodicTasks()
 
-    let skillLevelName = fixture.debugElement.nativeElement.querySelector('#skill-level-name-0 input');
+    const skillLevelName = fixture.debugElement.nativeElement.querySelector('#skill-level-name-0 input');
     skillLevelName.value = 'this is kill level name';
     skillLevelName.dispatchEvent(new Event('input'));
 

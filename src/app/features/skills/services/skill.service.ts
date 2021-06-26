@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-import { AuthenticationService } from '@core/services/authentication/authentication.service'
 import { ApiService } from '@core/services/api/api.service'
 import { Skill } from '../models/skill'
 

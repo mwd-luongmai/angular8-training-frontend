@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {JsonConvert, OperationMode, ValueCheckingMode} from "json2typescript"
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import {JsonConvert} from "json2typescript"
 import { FieldSpecs } from '@app/shared/validation/field-spec'
 import { Skill } from '../models/skill';
 import { SkillService } from '../services/skill.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Subscription, throwError } from 'rxjs';
+import { Subscription} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AlertService } from '@app/core';
 
@@ -88,7 +88,7 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
        
         if (this.skillProfile.valid && !this.skillProfile.pristine && this.skillLevels.length > 0) {
             this.loading = true;
-            let skill = this.convertFormDataToSkill(this.skillProfile.value);
+            const skill = this.convertFormDataToSkill(this.skillProfile.value);
             this.createSkillProfileSub = this.skillService.createSkillProfile(skill)
             .pipe(
                 catchError(this.handleError)
@@ -102,8 +102,8 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
     }
 
     convertFormDataToSkill(formData: object) {
-        let jsonConvert: JsonConvert = new JsonConvert();
-        let skill: Skill = jsonConvert.deserializeObject(formData, Skill);
+        const jsonConvert: JsonConvert = new JsonConvert();
+        const skill: Skill = jsonConvert.deserializeObject(formData, Skill);
         return skill;
     }
     
