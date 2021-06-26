@@ -6,7 +6,7 @@ import { Skill } from '../models/skill';
 import { SkillService } from '../services/skill.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AlertService } from '@app/core';
 
@@ -19,6 +19,7 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
     loading = false;
     submitted = false;
     errorMessages: object = {};
+    createSkillProfileSub: Subscription;
 
     errorsDef = {
         'network_error': 'There is error with your network, please check it and try it again',
@@ -29,6 +30,7 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
 	constructor(
         private formBuilder: FormBuilder,
         private skillService: SkillService, 
+        private router: Router,
         private alertService: AlertService
 	) {}
 
@@ -36,7 +38,7 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
         return this.skillProfile.controls
     }
     
-    get skillLevel() {
+    get skillLevels() {
         return this.skillProfile.get('skillLevels') as FormArray;
     }
 
@@ -57,26 +59,26 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
 
     initFormErrorMessage = () => {
         this.errorMessages = {
-            'skill_level_require': this.skillLevel.length < 1
+            'skill_level_require': this.skillLevels.length < 1
         }
     }
 
-    addSkillLevel() {
-        const skillLevel = this.formBuilder.group({
+    onAddSkillLevel() {
+        const skillLevelGroup = this.formBuilder.group({
             skillLevelName: ['', [FieldSpecs.fieldRequiredValidator('skillLevelName', true), FieldSpecs.fieldMaxLengthValidator('skillLevelName', true, 50)]],
             skillLevelDescription: ['', [FieldSpecs.fieldRequiredValidator('skillLevelDescription', true), FieldSpecs.fieldMaxLengthValidator('skillLevelDescription', true, 2000)]],
         });
 
-        const skillLevels = this.skillProfile.get('skillLevels') as FormArray;
-        skillLevels.push(skillLevel);
+        const levels = this.skillProfile.get('skillLevels') as FormArray;
+        levels.push(skillLevelGroup);
 
         this.errorMessages['skill_level_require'] = false;
         this.submitted = false;
     }
 
     removeKillLevel(skillLevelIndex) {
-        this.skillLevel.removeAt(skillLevelIndex);
-        if (this.skillLevel.length < 1) {
+        this.skillLevels.removeAt(skillLevelIndex);
+        if (this.skillLevels.length < 1) {
             this.initFormErrorMessage();
         }
     }
@@ -84,30 +86,24 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
     onSubmit() {
         this.submitted = true;
        
-        if (this.skillProfile.valid && !this.skillProfile.pristine && this.skillLevel.length > 0) {
+        if (this.skillProfile.valid && !this.skillProfile.pristine && this.skillLevels.length > 0) {
             this.loading = true;
             let skill = this.convertFormDataToSkill(this.skillProfile.value);
-            this.skillService.createSkillProfile(skill)
+            this.createSkillProfileSub = this.skillService.createSkillProfile(skill)
             .pipe(
                 catchError(this.handleError)
             )
             .subscribe(result => {
                 this.loading = false;
                 this.alertService.success('Your skill have been added successfully!');
-               // this.router.navigate(['/skills']);
+                this.router.navigate(['/skills']);
             })
         }
     }
 
     convertFormDataToSkill(formData: object) {
         let jsonConvert: JsonConvert = new JsonConvert();
-        let skill: Skill;
-        try{
-            skill = jsonConvert.deserializeObject(formData, Skill);
-        }catch(e) {
-            console.log(e);
-        }
-        
+        let skill: Skill = jsonConvert.deserializeObject(formData, Skill);
         return skill;
     }
     
@@ -127,5 +123,8 @@ export class SkillProfileComponent implements OnInit, OnDestroy {
       
 
 	ngOnDestroy() {
+        if(this.createSkillProfileSub) {
+            this.createSkillProfileSub.unsubscribe();
+        }
 	}
 }

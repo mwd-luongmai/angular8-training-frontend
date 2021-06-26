@@ -11,7 +11,7 @@
           </div>
           {{messages}}
 
-          <div>
+          <div id="form-error">
             <validation-messages
               *ngIf="isError"
               [errors]="errorMessages"
@@ -32,6 +32,7 @@
             [errors]="skillProfileForm.skillSchemaName.errors"
             [errorVisible]="!skillProfileForm.skillSchemaName.pristine || submitted"
             [placeholder]="'Enter your skill schema name'"
+            id="skill-schema-name"
           ></form-input>
          
           <mat-slide-toggle
@@ -44,7 +45,7 @@
           <br>
           <div class="clear-float">Skill Levels</div>
           <div class="clear-float">
-            <button type="button" (click)="addSkillLevel()" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
+            <button type="button" (click)="onAddSkillLevel()" id="add-skill-button" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
               <mat-icon><i class="material-icons md-dark">add</i></mat-icon>
               Add skill level
             </button>
@@ -53,11 +54,11 @@
 
           <div formArrayName="skillLevels" class="clear-float">
             
-            <div *ngFor="let skill of skillLevel.controls; let i=index">
-              <div  [formGroupName]="i" class="skill-level-detail">
+            <div *ngFor="let skill of skillLevels.controls; let i=index">
+              <div  [formGroupName]="i" class="skill-level-detail" id="skill-level-index-{{i}}">
                 <mat-card>
                   <mat-card-title class="align-left skill-level-title"> {{skill.get('skillLevelName').value}} 
-                    <button type="button" (click)="removeKillLevel(i)" [disabled]="loading" mat-mini-fab color="warn" class="remove-skill-level">
+                    <button type="button" (click)="removeKillLevel(i)" id="remove-skill-button" [disabled]="loading" mat-mini-fab color="warn" class="remove-skill-level">
                       <mat-icon>delete</mat-icon>
                     </button>
                   </mat-card-title>
@@ -68,6 +69,7 @@
                         [errors]="skill.get('skillLevelName').errors"
                         [errorVisible]="!skill.get('skillLevelName').pristine || submitted"
                         [placeholder]="'Enter your skill level'"
+                        id="skill-level-name-{{i}}"
                       ></form-input>
 
                       <br>
@@ -79,6 +81,7 @@
                         [errors]="skill.get('skillLevelDescription').errors"
                         [errorVisible]="!skill.get('skillLevelDescription').pristine || submitted"
                         [placeholder]="'Skill level description'"
+                        id="skill-level-description-{{i}}"
                       ></form-input>
 
                   </mat-card-content>
@@ -87,7 +90,7 @@
             </div>
           </div>
           
-          <div class="clear-float" *ngIf="skillLevel.controls.length > 0">
+          <div class="clear-float" *ngIf="skillLevels.controls.length > 0">
             <button (click)="onSubmit()" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
               <mat-icon><i class="material-icons md-dark">save</i></mat-icon>
               Submit skill
