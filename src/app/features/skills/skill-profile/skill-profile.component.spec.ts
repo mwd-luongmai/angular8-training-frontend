@@ -144,7 +144,7 @@ describe('SkillProfileComponent', () => {
     expect(skillLevelDescription).toBeNull();
     
     
-    let addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
+    const addSkillButton = fixture.debugElement.nativeElement.querySelector('#add-skill-button');
     addSkillButton.click();
     tick();
     fixture.detectChanges();
@@ -159,7 +159,7 @@ describe('SkillProfileComponent', () => {
     skillLevelDescription = fixture.nativeElement.querySelector('#skill-level-description-0');
     expect(skillLevelDescription).toBeTruthy();
 
-    let rmoveSkillButton = fixture.debugElement.nativeElement.querySelector('#remove-skill-button');
+    const rmoveSkillButton = fixture.debugElement.nativeElement.querySelector('#remove-skill-button');
     rmoveSkillButton.click();
     tick();
     fixture.detectChanges();
@@ -194,7 +194,7 @@ describe('SkillProfileComponent', () => {
     discardPeriodicTasks()
 
     const skill: Skill = component.convertFormDataToSkill(component.skillProfile.value);
-    let createSkillProfileSpy = skillService.createSkillProfile.and.returnValue(of(skill));
+    const createSkillProfileSpy = skillService.createSkillProfile.and.returnValue(of(skill));
 
     tick();
     component.onSubmit();
@@ -231,8 +231,8 @@ describe('SkillProfileComponent', () => {
     tick();
     discardPeriodicTasks()
 
-    let skill: Skill = component.convertFormDataToSkill(component.skillProfile.value);
-    let createSkillProfileSpy = skillService.createSkillProfile.and.returnValue(of(skill));
+    const skill: Skill = component.convertFormDataToSkill(component.skillProfile.value);
+    const createSkillProfileSpy = skillService.createSkillProfile.and.returnValue(of(skill));
 
     tick();
     component.onSubmit();
