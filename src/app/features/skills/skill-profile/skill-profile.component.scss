@@ -1,0 +1,32 @@
+.skill-profile {
+    .clear-float {
+        clear: both;
+    }
+    .add-skill-level {
+        float: right;
+
+    }
+
+    .align-left {
+        float: left;
+    }
+
+    .skill-level-detail {
+        margin: 30px 0px;
+    }
+
+    .skill-level-title {
+        font-size: 18px;
+    }
+
+    .remove-skill-level {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 10;
+        
+        .mat-icon {
+            margin-right: 0px;
+        }
+    }
+}

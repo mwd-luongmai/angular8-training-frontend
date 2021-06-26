@@ -10,6 +10,7 @@ import { ChangeThemeComponent } from './components/change-theme/change-theme.com
 import { ChangeLanguageComponent } from './components/change-language/change-language.component'
 import { SafePipe } from '@app/safe.pipe'
 import { TableBasicResponsiveComponent } from './components/table-basic-responsive/table-basic-responsive.component'
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TableBasicResponsiveComponent } from './components/table-basic-responsi
     ReactiveFormsModule,
     CustomMaterialModule,
     FormsModule,
+    CKEditorModule
   ],
   exports: [
     AlertComponent,

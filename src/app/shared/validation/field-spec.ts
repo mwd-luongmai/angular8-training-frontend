@@ -61,6 +61,28 @@ export class FieldSpecs {
     }
   }
 
+  static fieldMaxLengthValidator(
+    validatorName: string,
+    trimValue = true,
+    maxLength: number
+  ): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      let value = control.value
+      if (trimValue) {
+        value = value.trim()
+      }
+
+      const result: { [key: string]: any } = {}
+      if (value.length > maxLength) {
+        result[validatorName] = true;
+        control.setErrors(result)
+      }
+
+      return finalizeValidationResult(result)
+    }
+  }
+
+
   static nameValidator(
     control: AbstractControl
   ): { [key: string]: any } | null {

@@ -6,9 +6,15 @@ export class ValidationService {
   private fieldValidationMessages = {
     usernameMinLength: 'Minimum length of username must be 6 characters.',
     usernameRequired: 'Username is required.',
+    skillNameRequired: 'Skill name is required.',
+    skillSchemaNameRequired: 'Skill schema name is required.',
     usernamePattern: 'Username must contain only alphabetic characters.',
     nameRequired: 'Name is required.',
     nameMaxLength: 'The maximum length of name is 50 characters.',
+    skillNameMaxLength: 'The maximum length of name is 100 characters.',
+    skillLevelDescription: 'The maximum length of description is 2000 characters.',
+    skillSchemaNameLength: 'The maximum length of skill schema name is 100 characters.',
+    skillLevelName: 'The maximum length of name is 50 characters.',
     emailRequired: 'Email is required.',
     emailPattern: 'Please enter a valid email address.',
     passwordRequired: 'Password is required.',
@@ -42,6 +48,7 @@ export class ValidationService {
     errors: ValidationErrors,
     errorsDef: any
   ): string[] {
+    console.log(errors);
     const messages: string[] = []
     for (const error in errors) {
       if (errors.hasOwnProperty(error) && errors[error] === true) {

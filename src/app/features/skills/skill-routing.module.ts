@@ -5,10 +5,13 @@ import { SkillListComponent } from './skill-list/skill-list.component'
 
 const routes: Routes = [
   {
-    path: 'skill', component: SkillListComponent
+    path: '', component: SkillListComponent
   },
   {
     path: 'skill-profile/:id', component: SkillProfileComponent
+  },
+  {
+    path: 'skill-profile', component: SkillProfileComponent
   },
   {
     path: 'skill-assign/:id', component: SkillProfileComponent
