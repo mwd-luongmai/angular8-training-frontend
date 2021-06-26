@@ -37,7 +37,6 @@ export class AlertComponent implements OnInit, OnDestroy {
       this.message = message
       if (this.message) {
         if (this.message.type === 'success') {
-          console.log(this.message.type)
           config.panelClass = ['success-snackbar']
         } else if (this.message.type === 'error') {
           config.panelClass = ['error-snackbar']

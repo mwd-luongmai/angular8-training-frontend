@@ -48,7 +48,6 @@ export class ValidationService {
     errors: ValidationErrors,
     errorsDef: any
   ): string[] {
-    console.log(errors);
     const messages: string[] = []
     for (const error in errors) {
       if (errors.hasOwnProperty(error) && errors[error] === true) {

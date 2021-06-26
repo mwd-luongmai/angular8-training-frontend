@@ -70,7 +70,6 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   get hasError(): boolean {
-    console.log('has error');
     for (const error in this.errors) {
       if (this.errors[error]) {
         return true
