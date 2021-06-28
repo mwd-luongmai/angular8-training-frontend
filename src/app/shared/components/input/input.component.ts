@@ -1,4 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core'
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import {
   NG_VALUE_ACCESSOR,
   ControlValueAccessor,
@@ -27,11 +29,16 @@ export class InputComponent implements ControlValueAccessor {
   @Input() errorsDef: any
   @Input() placeholder: string = ''
   @Input() icon: string = ''
+  @Input() config: any
 
   private innerValue: any = ''
 
   private onTouchedCallback: () => void = noop
   private onChangeCallback: (_: any) => void = noop
+
+  get getEditorInit() {
+    return ClassicEditor
+  }
 
   get value(): any {
     return this.innerValue
