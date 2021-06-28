@@ -1,0 +1,75 @@
+<div class="flex-comp-container">
+  <mat-card>
+    <mat-card-title>Update Profile</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id" class="form-control" />
+
+        <form-input
+          formControlName="name"
+          [type]="'text'"
+          [errors]="formControls.name.errors"
+          [errorVisible]="submitted"
+          [placeholder]="'Name'"
+          [icon]="'account_box'"
+        ></form-input>
+
+        <form-input
+          formControlName="company"
+          [type]="'text'"
+          [errors]="formControls.company.errors"
+          [errorVisible]="submitted"
+          [placeholder]="'Company'"
+          [icon]="'business'"
+        ></form-input>
+
+        <form-input
+          formControlName="location"
+          [type]="'text'"
+          [errors]="formControls.location.errors"
+          [errorVisible]="submitted"
+          [placeholder]="'Location'"
+          [icon]="'location_on'"
+        ></form-input>
+
+        <form-input
+          formControlName="bio"
+          [rows]="'5'"
+          [type]="'textarea'"
+          [errors]="formControls.bio.errors"
+          [errorVisible]="submitted"
+          [placeholder]="'Bio'"
+          [icon]="'description'"
+        ></form-input>
+
+        <div>
+          <button
+            mat-raised-button
+            [disabled]="loading"
+            color="primary"
+            type="submit"
+            (click)="onSubmit()"
+          >
+            <mat-icon><i class="material-icons md-dark">done</i></mat-icon
+            >Done
+          </button>
+          <a mat-button routerLink="/" class="btn btn-link">
+            <mat-icon><i class="material-icons md-dark">cancel</i></mat-icon
+            >Cancel
+          </a>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="profile-actions">
+      <a mat-button routerLink="/users/change-password">
+        <mat-icon><i class="material-icons md-dark">edit</i></mat-icon
+        >Change Password
+      </a>
+      <a mat-button routerLink="/users/profile/delete">
+        <mat-icon><i class="material-icons md-dark">delete</i></mat-icon
+        >Delete Account
+      </a>
+    </mat-card-actions>
+  </mat-card>
+  <app-loading [visible]="loading"></app-loading>
+</div>

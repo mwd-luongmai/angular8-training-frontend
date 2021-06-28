@@ -1,5 +1,6 @@
 import { UserRoutingModule } from './user-routing.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ProfileComponent } from './profile/profile.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { SharedModule } from '../../shared/shared.module';
 import { CustomMaterialModule } from '../../core/material.module';
@@ -8,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [SignUpComponent, DeleteAccountComponent],
+  declarations: [SignUpComponent, DeleteAccountComponent, ProfileComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
