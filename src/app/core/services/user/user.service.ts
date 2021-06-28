@@ -108,11 +108,11 @@ export class UserService {
     }
   }
 
-  forgotPassWord(email: string, url: string) {
+  forgotPassword(email: string, url: string) {
     return this.apiService.post(routes.forgotPassword, { email,  url});
   }
 
-  resetPassWord(resetToken: string, password: string) {
+  resetPassword(resetToken: string, password: string) {
     return this.apiService.post(routes.resetPassword, { resetToken,  password});
   }
 }

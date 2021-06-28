@@ -39,7 +39,7 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.loading = true;
     this.userService
-      .forgotPassWord(this.formControls.email.value, window.location.host)
+      .forgotPassword(this.formControls.email.value, window.location.host)
       .subscribe(
         (re) => {
           this.loading = false;

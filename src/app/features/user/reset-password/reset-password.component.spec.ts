@@ -87,7 +87,7 @@ describe("ResetPasswordComponent", () => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService);
     const alertServiceSpy = fixture.debugElement.injector.get(AlertService);
     const alertSuccessSpy = spyOn(alertServiceSpy, "success").and.callThrough();
-    const userSpy = spyOn(userServiceSpy, "resetPassWord").and.callThrough();
+    const userSpy = spyOn(userServiceSpy, "resetPassword").and.callThrough();
 
     component.formControls.password.setValue("abcd123456");
     component.formControls.confirmPassword.setValue("abcd123456");
@@ -110,7 +110,7 @@ describe("ResetPasswordComponent", () => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService);
     const resetPassWordPSpy = spyOn(
       userServiceSpy,
-      "resetPassWord"
+      "resetPassword"
     ).and.callThrough();
 
     component.formControls.password.setValue("111");
@@ -130,7 +130,7 @@ describe("ResetPasswordComponent", () => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService);
     const resetPassWordSpy = spyOn(
       userServiceSpy,
-      "resetPassWord"
+      "resetPassword"
     ).and.callFake(() => {
       return throwError(new Error("Fake error"));
     });

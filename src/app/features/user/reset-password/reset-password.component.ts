@@ -50,7 +50,7 @@ export class ResetPasswordComponent implements OnInit {
 
     this.loading = true;
     this.userService
-      .resetPassWord(this.resetToken, this.formControls.password.value)
+      .resetPassword(this.resetToken, this.formControls.password.value)
       .subscribe(
         (re) => {
           this.loading = false;

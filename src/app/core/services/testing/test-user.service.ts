@@ -19,14 +19,14 @@ export class TestUserService extends UserService {
     return asyncData(user)
   }
 
-  forgotPassWord(
+  forgotPassword(
     email: string,
     url: string
   ): Observable<string> {
     return asyncData('')
   }
   
-  resetPassWord(
+  resetPassword(
     password: string,
     resetToken: string
   ): Observable<string> {

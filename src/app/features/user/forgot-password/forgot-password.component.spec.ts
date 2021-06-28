@@ -72,7 +72,7 @@ describe("ForgotPasswordComponent", () => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService);
     const alertServiceSpy = fixture.debugElement.injector.get(AlertService);
     const alertSuccessSpy = spyOn(alertServiceSpy, "success").and.callThrough();
-    const forgotSpy = spyOn(userServiceSpy, "forgotPassWord").and.callThrough();
+    const forgotSpy = spyOn(userServiceSpy, "forgotPassword").and.callThrough();
 
     component.formControls.email.setValue("test123@gmail.com");
     component.onSubmit();
@@ -92,7 +92,7 @@ describe("ForgotPasswordComponent", () => {
 
   it("should not call api when submit the form with invalid data", fakeAsync(() => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService);
-    const userSpy = spyOn(userServiceSpy, "forgotPassWord").and.callThrough();
+    const userSpy = spyOn(userServiceSpy, "forgotPassword").and.callThrough();
 
     component.formControls.email.setValue("");
     component.onSubmit();
@@ -108,7 +108,7 @@ describe("ForgotPasswordComponent", () => {
 
   it("should handle error when call api", fakeAsync(() => {
     const userServiceSpy = fixture.debugElement.injector.get(UserService);
-    const forgotSpy = spyOn(userServiceSpy, "forgotPassWord").and.callFake(
+    const forgotSpy = spyOn(userServiceSpy, "forgotPassword").and.callFake(
       () => {
         return throwError(new Error("Fake error"));
       }
