@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.alertService.success('Profile updated successfully.', true)
         this.submitted = false
         this.loading = false
-        // this.router.navigate(['/'])
+        this.router.navigate(['/'])
       },
       error => {
         this.alertService.error(error)

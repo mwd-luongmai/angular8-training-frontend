@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { AuthGuard } from '@app/core';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
@@ -14,7 +15,8 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'sign-up', component: SignUpComponent },
-      { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] }
+      { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] },
+      { path: 'delete',component: DeleteAccountComponent,canActivate: [AuthGuard]}
     ],
   },
 ]
