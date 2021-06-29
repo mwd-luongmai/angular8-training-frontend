@@ -8,9 +8,10 @@ import {ForgotPasswordComponent} from './forgot-password/forgot-password.compone
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ActiveUserComponent } from './active-user/active-user.component';
 
 @NgModule({
-  declarations: [SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent, DeleteAccountComponent],
+  declarations: [SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent, DeleteAccountComponent, ActiveUserComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

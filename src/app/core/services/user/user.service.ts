@@ -12,6 +12,7 @@ const routes = {
   register: '/users/register',
   changePassword: (id: string) => `/users/${id}/password`,
   deactivate: (id: string) => `/users/${id}/deactivate`,
+  active: (id: string) => `/users/${id}/active`,
   search: (keyword: string, method: string) =>
     `/users/search/${keyword}/${method}`,
   deleteAccount: '/users/deleteAccount',
@@ -59,6 +60,10 @@ export class UserService {
 
   deactivate(id: string) {
     return this.apiService.put(routes.deactivate(id))
+  }
+
+  active(id: string) {
+    return this.apiService.put(routes.active(id))
   }
 
   deleteAccount(id: string, password: string) {
