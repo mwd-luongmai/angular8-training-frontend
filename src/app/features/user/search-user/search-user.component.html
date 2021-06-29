@@ -1,0 +1,43 @@
+<div>
+    <mat-card>
+        <mat-card-title>Search User</mat-card-title>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+                <form-select 
+                formControlName="method"
+                [errors]="formControls.method.errors" 
+                [errorVisible]="submitted"
+                [icon]="'list'"
+                [options]="options"
+                [label]="'Search Category'"
+                ></form-select>
+                
+                <mat-form-field>
+                    <mat-icon matPrefix><i class="material-icons md-dark">input</i></mat-icon>
+                    <input matInput placeholder="Enter a keyword" type="text" formControlName="keyword" class="form-control"
+                        maxlength="{{ maxLengthSearch }}" />
+                </mat-form-field>
+
+                <button mat-raised-button color="primary">
+                    <mat-icon><i class="material-icons md-dark">search</i></mat-icon>Search
+                </button>
+            </form>
+        </mat-card-content>
+        <div *ngIf="isShowResult" class="row search-result">
+            <p *ngIf="isNotFound" class="not-found">
+                There is not any user matching with the search.
+            </p>
+            <div *ngIf="!isNotFound">
+                <p class="not-found" *ngIf="users.length > 1">
+                    {{ users.length }} users has been found.
+                </p>
+                <p class="not-found" *ngIf="users.length === 1">
+                    1 user has been found.
+                </p>
+        
+                <app-table-basic-responsive [dataSource]="dataSource" [dataColumn]="dataColumn"></app-table-basic-responsive>
+            </div>
+        </div>
+    </mat-card>
+    <app-loading [visible]="loading"></app-loading>
+</div>
