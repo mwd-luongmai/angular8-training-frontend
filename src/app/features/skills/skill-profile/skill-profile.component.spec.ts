@@ -29,7 +29,10 @@ describe('SkillProfileComponent', () => {
   };
 
   const skillService = jasmine.createSpyObj('SkillService', ['createSkillProfile']);
-  
+  const activeRoute = jasmine.createSpyObj('ActivatedRoute', ['createSkillProfile']);
+  activeRoute.params = of({a:'60dacbc57faeaf1c0c0526d6'});
+
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SkillProfileComponent ],
@@ -48,6 +51,7 @@ describe('SkillProfileComponent', () => {
         {provide: Router, useValue: routerSub},
         {provide: FormBuilder, useClass: FormBuilder},
         {provide: AlertService, useValue: alertServiceSub},
+        {provide: ActivatedRoute, useValue: activeRoute}
       ]
     })
     .compileComponents().then(() => {
@@ -159,7 +163,7 @@ describe('SkillProfileComponent', () => {
     skillLevelDescription = fixture.nativeElement.querySelector('#skill-level-description-0');
     expect(skillLevelDescription).toBeTruthy();
 
-    const rmoveSkillButton = fixture.debugElement.nativeElement.querySelector('#remove-skill-button');
+    const rmoveSkillButton = fixture.debugElement.nativeElement.querySelector('#remove-skill-button-0');
     rmoveSkillButton.click();
     tick();
     fixture.detectChanges();
