@@ -36,7 +36,6 @@ export class FieldValidators {
 
   static matchPassword(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
-      console.log(control);
       const password = control.get('password').value
       const confirmPassword = control.get('confirmPassword').value
       const isValid = password === confirmPassword
@@ -53,11 +52,5 @@ export class FieldValidators {
 
   static username(): ValidatorFn {
     return Validators.pattern('^[a-zA-Z0-9]+$')
-  }
-
-  static matchPasswords(group: FormGroup) {
-    const pass = group.controls.password.value;
-    const confirmPass = group.controls.confirmPassword.value;
-    return pass === confirmPass ? null : { notSame: true }
   }
 }

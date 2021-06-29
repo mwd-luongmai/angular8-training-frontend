@@ -33,7 +33,7 @@ export class ResetPasswordComponent implements OnInit {
         password: ["", [FieldSpecs.passwordValidator]],
         confirmPassword: ["", [FieldSpecs.passwordValidator]],
       },
-      { validator: FieldValidators.matchPasswords }
+      { validator: FieldValidators.matchPassword }
     );
   }
 
