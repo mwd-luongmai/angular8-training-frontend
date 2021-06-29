@@ -61,7 +61,7 @@ describe('SkillProfileComponent', () => {
   }));
 
   it('should call api getSkillProfileSpy', fakeAsync(() => {
-    let skillObject = {
+    const skillObject = {
       "skillName": "php skills",
       "skillSchemaName": "programing skill",
       "skillStatus": true,
@@ -88,7 +88,7 @@ describe('SkillProfileComponent', () => {
   }))
 
   it('should display value correct with object form API', fakeAsync(() => {
-    let skillObject = {
+    const skillObject = {
       "skillName": "php skills",
       "skillSchemaName": "programing skill",
       "skillStatus": true,
@@ -127,7 +127,7 @@ describe('SkillProfileComponent', () => {
   }))
 
   it('should call api to update skill when click submit', fakeAsync(() => {
-    let skillObject = {
+    const skillObject = {
       "skillName": "php skills",
       "skillSchemaName": "programing skill",
       "skillStatus": true,
