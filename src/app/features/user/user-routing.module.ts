@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ActiveUserComponent } from './active-user/active-user.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    children: [{ path: 'sign-up', component: SignUpComponent }],
+    children: [
+      { path: 'sign-up', component: SignUpComponent },
+      { path: 'active/:id', component: ActiveUserComponent}
+    ],
   },
 ]
 
