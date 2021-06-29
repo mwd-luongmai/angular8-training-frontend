@@ -6,9 +6,10 @@ import { CustomMaterialModule } from '../../core/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
-  declarations: [SignUpComponent, DeleteAccountComponent],
+  declarations: [SignUpComponent, DeleteAccountComponent, ChangePasswordComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

@@ -107,4 +107,8 @@ export class UserService {
       this.authenticationService.refreshLocalData()
     }
   }
+
+  changePassword(id: string, old_password: string, new_password: string) {
+    return this.apiService.put(routes.changePassword(id), {old_password, new_password});
+  }
 }
