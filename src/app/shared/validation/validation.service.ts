@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { ValidationErrors } from '@angular/forms'
+import { ValidationErrors, FormGroup } from '@angular/forms'
 
 @Injectable({ providedIn: 'root' })
 export class ValidationService {
@@ -32,6 +32,7 @@ export class ValidationService {
     // others:
     required: 'Field is required.',
     minLength: 'Mininum length is required',
+    notSame: 'Password does not match.'
   }
 
   getValidationErrorMessage(validatorName: string, errorsDef: any) {

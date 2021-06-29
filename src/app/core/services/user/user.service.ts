@@ -112,4 +112,12 @@ export class UserService {
       this.authenticationService.refreshLocalData()
     }
   }
+
+  forgotPassword(email: string, url: string) {
+    return this.apiService.post(routes.forgotPassword, { email,  url});
+  }
+
+  resetPassword(resetToken: string, password: string) {
+    return this.apiService.post(routes.resetPassword, { resetToken,  password});
+  }
 }
