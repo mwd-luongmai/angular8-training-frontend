@@ -120,4 +120,12 @@ export class UserService {
   resetPassword(resetToken: string, password: string) {
     return this.apiService.post(routes.resetPassword, { resetToken,  password});
   }
+  
+  search(method: string, keyword: string){
+    return this.apiService.get(routes.search(keyword, method)).pipe(
+      map(users => {
+        return this.jsonConvert.deserializeArray(users, User)
+      })
+    )
+  }
 }

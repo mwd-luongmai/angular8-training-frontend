@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>{{label}}</mat-label>
+    <mat-icon matPrefix>
+        <i class="material-icons md-dark">{{ icon }}</i>
+    </mat-icon>
+    <mat-select [(value)]="value" [disabled]="disabled">
+        <mat-option *ngFor="let item of options " [value]="item.value">{{item.text}}</mat-option>
+    </mat-select>
+    <validation-messages *ngIf="errorVisible && errors" [errors]="errors" [errorsDef]="errorsDef"></validation-messages>
+</mat-form-field>

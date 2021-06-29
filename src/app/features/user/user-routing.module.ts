@@ -4,6 +4,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ActiveUserComponent } from './active-user/active-user.component';
+import { SearchUserComponent } from './search-user/search-user.component';
+import { AuthGuard } from '../../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +17,8 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'sign-up', component: SignUpComponent },
-      { path: 'active/:id', component: ActiveUserComponent}
+      { path: 'active/:id', component: ActiveUserComponent},
+      { path: 'search', component: SearchUserComponent, canActivate: [AuthGuard]}
     ],
   },
   {

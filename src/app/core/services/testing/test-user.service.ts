@@ -44,7 +44,7 @@ export class TestUserService extends UserService {
     return this.delete(id);
   }
 
-  search(keyword: string, method: string): Observable<User[]> {
+  search(method: string, keyword: string): Observable<User[]> {
     let users = [] as User[]
     keyword = decodeURIComponent(keyword).toLowerCase()
     method = method.toString()
