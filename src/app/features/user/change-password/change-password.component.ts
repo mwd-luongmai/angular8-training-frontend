@@ -5,7 +5,7 @@ import {
 
 import { AlertService, UserService, AuthenticationService } from "@core/services";
 import { FieldSpecs } from "@app/shared/validation/field-spec";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FieldValidators } from "@app/shared/validation/field-validator";
 import { User } from '@core/models'
 import { Subscription } from 'rxjs'
@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs'
   templateUrl: "change-password.component.html",
   styleUrls: ["change-password.component.scss"],
 })
-export class ChangePasswordComponent implements OnInit {
+export class ChangePasswordComponent implements OnInit, OnDestroy {
   changePassForm: FormGroup;
   loading = false;
   submitted = false;
