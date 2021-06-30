@@ -5,6 +5,9 @@ import { SkillProfileComponent } from './skill-profile/skill-profile.component'
 const routes: Routes = [
   {
     path: 'skill-profile', component: SkillProfileComponent
+  },
+  {
+    path: ':id', component: SkillProfileComponent
   }
 ]
 
