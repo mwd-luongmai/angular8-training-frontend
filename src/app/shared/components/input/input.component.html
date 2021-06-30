@@ -1,9 +1,9 @@
-<mat-form-field>
-  <mat-icon matPrefix
+<mat-form-field *ngIf="type != 'editor'">
+  <mat-icon *ngIf="icon != ''" matPrefix
     ><i class="material-icons md-dark">{{ icon }}</i></mat-icon
   >
   <input
-    *ngIf="type !== 'textarea'"
+    *ngIf="type !== 'textarea' && type != 'editor'"
     matInput
     placeholder="{{ placeholder }}"
     [(ngModel)]="value"
@@ -25,3 +25,21 @@
     [errorsDef]="errorsDef"
   ></validation-messages>
 </mat-form-field>
+<div *ngIf="type === 'editor'">
+  <div>{{ placeholder }}</div>
+  <br>
+  <ckeditor 
+    *ngIf="type === 'editor'"
+    mat-form-field
+    [config]="config"
+    [(ngModel)]="value"
+    [editor] ="getEditorInit"
+    (blur)="onBlur()"
+  ></ckeditor>
+
+  <validation-messages
+    *ngIf="errorVisible && errors"
+    [errors]="errors"
+    [errorsDef]="errorsDef"
+  ></validation-messages>
+</div>

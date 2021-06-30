@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core'
-import { ValidationErrors } from '@angular/forms'
+import { ValidationErrors, FormGroup } from '@angular/forms'
 
 @Injectable({ providedIn: 'root' })
 export class ValidationService {
   private fieldValidationMessages = {
     usernameMinLength: 'Minimum length of username must be 6 characters.',
     usernameRequired: 'Username is required.',
+    skillNameRequired: 'Skill name is required.',
+    skillSchemaNameRequired: 'Skill schema name is required.',
     usernamePattern: 'Username must contain only alphabetic characters.',
     nameRequired: 'Name is required.',
     nameMaxLength: 'The maximum length of name is 50 characters.',
+    skillNameMaxLength: 'The maximum length of a skill name is 100 characters.',
+    skillLevelDescription: 'The maximum length of a skill level description is 2000 characters.',
+    skillSchemaNameLength: 'The maximum length of skill schema name is 100 characters.',
+    skillLevelName: 'The maximum length of a skill level name is 50 characters.',
     emailRequired: 'Email is required.',
     emailPattern: 'Please enter a valid email address.',
     passwordRequired: 'Password is required.',
@@ -26,6 +32,7 @@ export class ValidationService {
     // others:
     required: 'Field is required.',
     minLength: 'Mininum length is required',
+    notSame: 'Password does not match.'
   }
 
   getValidationErrorMessage(validatorName: string, errorsDef: any) {

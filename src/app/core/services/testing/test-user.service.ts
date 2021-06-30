@@ -18,18 +18,18 @@ export class TestUserService extends UserService {
   update(user: User): Observable<User> {
     return asyncData(user)
   }
-  
-  forgotPassword(emailObject: {
-    email: string
+
+  forgotPassword(
+    email: string,
     url: string
-  }): Observable<string> {
+  ): Observable<string> {
     return asyncData('')
   }
-
-  resetPassword(passwordObject: {
-    password: string
+  
+  resetPassword(
+    password: string,
     resetToken: string
-  }): Observable<string> {
+  ): Observable<string> {
     return asyncData('')
   }
 
@@ -48,7 +48,7 @@ export class TestUserService extends UserService {
     return this.delete(id);
   }
 
-  search(keyword: string, method: string): Observable<User[]> {
+  search(method: string, keyword: string): Observable<User[]> {
     let users = [] as User[]
     keyword = decodeURIComponent(keyword).toLowerCase()
     method = method.toString()
@@ -67,5 +67,9 @@ export class TestUserService extends UserService {
       )
     }
     return asyncData(users)
+  }
+
+  active(id: string): Observable<string>{
+    return asyncData('')
   }
 }

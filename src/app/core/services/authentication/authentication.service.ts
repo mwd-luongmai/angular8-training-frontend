@@ -47,7 +47,8 @@ export class AuthenticationService {
   }
 
   signUp(name: string, username: string, email: string, password: string){
-    return this.apiService.post(routes.signup, { name, username, email, password})
+    console.log("url", window.location.href)
+    return this.apiService.post(routes.signup, { name, username, email, password, url: window.location.href})
   }
 
   logout() {

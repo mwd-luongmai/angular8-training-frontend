@@ -12,6 +12,7 @@ const routes = {
   register: '/users/register',
   changePassword: (id: string) => `/users/${id}/password`,
   deactivate: (id: string) => `/users/${id}/deactivate`,
+  active: (id: string) => `/users/${id}/active`,
   search: (keyword: string, method: string) =>
     `/users/search/${keyword}/${method}`,
   deleteAccount: '/users/deleteAccount',
@@ -59,6 +60,10 @@ export class UserService {
 
   deactivate(id: string) {
     return this.apiService.put(routes.deactivate(id))
+  }
+
+  active(id: string) {
+    return this.apiService.put(routes.active(id))
   }
 
   deleteAccount(id: string, password: string) {
@@ -110,5 +115,21 @@ export class UserService {
 
   changePassword(id: string, old_password: string, new_password: string) {
     return this.apiService.put(routes.changePassword(id), {old_password, new_password});
+  }
+  
+  forgotPassword(email: string, url: string) {
+    return this.apiService.post(routes.forgotPassword, { email,  url});
+  }
+
+  resetPassword(resetToken: string, password: string) {
+    return this.apiService.post(routes.resetPassword, { resetToken,  password});
+  }
+  
+  search(method: string, keyword: string){
+    return this.apiService.get(routes.search(keyword, method)).pipe(
+      map(users => {
+        return this.jsonConvert.deserializeArray(users, User)
+      })
+    )
   }
 }
