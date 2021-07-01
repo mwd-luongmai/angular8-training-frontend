@@ -4,6 +4,7 @@ import { AuthGuard } from '@app/core';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ActiveUserComponent } from './active-user/active-user.component';
@@ -27,6 +28,11 @@ const routes: Routes = [
       { path: 'reset-password/:token', component: ResetPasswordComponent },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
     ],
+  },
+
+  {
+    path: '',
+    children: [{ path:'change-password', component: ChangePasswordComponent }],
   },
 ]
 

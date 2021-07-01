@@ -113,6 +113,10 @@ export class UserService {
     }
   }
 
+  changePassword(id: string, old_password: string, new_password: string) {
+    return this.apiService.put(routes.changePassword(id), {old_password, new_password});
+  }
+  
   forgotPassword(email: string, url: string) {
     return this.apiService.post(routes.forgotPassword, { email,  url});
   }

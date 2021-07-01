@@ -33,6 +33,10 @@ export class TestUserService extends UserService {
     return asyncData('')
   }
 
+  changePassword(id: string, old_password: string, new_password: string): Observable<string> {
+    return asyncData('')
+  }
+
   delete(id: string): Observable<string> {
     return asyncData('{"message":"Password is incorrect."}')
   }

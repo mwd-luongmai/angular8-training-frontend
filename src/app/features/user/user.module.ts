@@ -9,11 +9,12 @@ import {ForgotPasswordComponent} from './forgot-password/forgot-password.compone
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ActiveUserComponent } from './active-user/active-user.component';
 import { SearchUserComponent } from './search-user/search-user.component';
 
 @NgModule({
-  declarations: [SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent, DeleteAccountComponent, ActiveUserComponent, SearchUserComponent, ProfileComponent],
+  declarations: [SignUpComponent, ForgotPasswordComponent, ResetPasswordComponent, DeleteAccountComponent, ActiveUserComponent, SearchUserComponent, ProfileComponent, ChangePasswordComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
