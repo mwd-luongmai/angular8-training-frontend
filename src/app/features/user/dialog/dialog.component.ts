@@ -12,18 +12,17 @@ import { map,
   distinctUntilChanged, } from 'rxjs/operators';
 
 @Component({
-  selector: 'dialog-component',
   templateUrl: 'dialog.component.html',
 })
 
-export class Dialog implements OnInit{
+export class DialogComponent  implements OnInit{
   assignSkillForm: FormGroup;
   skills$!: Observable<Skill[]>;
   skillLevels!: SkillLevel[];
   currentUser: User;
 
   constructor(
-    public dialogRef: MatDialogRef<Dialog>,
+    public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {skill: Skill, selectedLevel: string, type: 'update'| 'add'| 'delete', id?: string,  notify: Observable<string>},
     private formBuilder: FormBuilder,
     private skillService: SkillService,
@@ -115,11 +114,4 @@ export class Dialog implements OnInit{
   onNoClick(): void {
     this.dialogRef.close();
   }
-}
-
-export interface DialogData {
-  skillName: string;
-  skillNameId: string;
-  skillLevel: string;
-  skillLevelId: string;
 }
