@@ -1,13 +1,13 @@
 <div class="flex-comp-container skill-profile">
   <div class="message" *ngIf="errorMessages.server_message && skillId !='' "><h2>{{errorsDef.server_message}}</h2></div>
     <mat-card *ngIf="isComponentReady">
-      <mat-card-title class="align-left">Create Skill Profile </mat-card-title>
+      <mat-card-title class="align-left">{{ skillId?"Update":"Create" }} Skill Profile </mat-card-title>
       <mat-card-content>
         <form [formGroup]="skillProfile" (ngSubmit)="onSubmit()">
           <div class="clear-float">
             <button (click)="onSubmit()" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
               <mat-icon><i class="material-icons md-dark">save</i></mat-icon>
-              Submit skill
+              {{ skillId?"Update":"Create" }} skill
             </button>
           </div>
           {{messages}}
@@ -36,10 +36,17 @@
             id="skill-schema-name"
           ></form-input>
          
-          <mat-slide-toggle
+
+          
+        
+
+          <mat-slide-toggle 
             formControlName="skillStatus"
-            class="example-margin">
-            Enable
+            class="example-margin"  
+            
+                 
+            >
+            {{skillProfileForm.skillStatus.value?"Enabled":"Disabled"}}
           </mat-slide-toggle>
 
           <br>
@@ -94,7 +101,7 @@
           <div class="clear-float" *ngIf="skillLevels.controls.length > 0">
             <button (click)="onSubmit()" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
               <mat-icon><i class="material-icons md-dark">save</i></mat-icon>
-              Submit skill
+              {{ skillId?"Update":"Create" }} skill
             </button>
           </div>
           <br>

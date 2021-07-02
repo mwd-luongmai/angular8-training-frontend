@@ -1,0 +1,29 @@
+<div class="flex-comp-container">
+  <div class="flex-comp-item">
+    <div class="person-grid-container">
+      
+      <mat-card  routerLink="/skills/skill-profile" class="person-card-item" >
+      
+        <mat-card-header>
+          <mat-card-title>Create new skill</mat-card-title>
+        
+        </mat-card-header>
+        <mat-card-content></mat-card-content>
+      
+      </mat-card>
+      <mat-card [routerLink]="['/skills/',skill.id]" *ngFor="let skill of skills"  class="person-card-item" >
+        <mat-card-header>
+          <mat-card-title>{{ skill.skillName }}</mat-card-title>
+          <mat-card-subtitle
+            >{{ skill.skillName }} (<span *ngIf="skill.skillStatus; else inActive" i18n
+              >Active</span
+            >)<ng-template #inActive><span i18n>Inactive</span></ng-template>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content></mat-card-content>
+      
+      </mat-card>
+    
+    </div>
+  </div>
+</div>
