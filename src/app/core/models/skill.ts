@@ -3,6 +3,9 @@ import { SkillLevel } from "./skillLevel";
 
 @JsonObject("Skill")
 export class Skill {
+    @JsonProperty("_id", String)
+    _id: string = '';
+
     @JsonProperty("skillName", String)
     skillName: string = '';
 

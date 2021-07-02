@@ -18,6 +18,7 @@ const routes = {
   deleteAccount: '/users/deleteAccount',
   forgotPassword: '/users/forgot-password',
   resetPassword: '/users/reset-password',
+  userSkills: id => `/users/skills/${id}`,
 }
 
 @Injectable({ providedIn: 'root' })
@@ -36,6 +37,10 @@ export class UserService {
         return this.jsonConvert.deserializeArray(users, User)
       })
     )
+  }
+
+  getUserSkills(id) {
+    return this.apiService.get(routes.userSkills(id));
   }
 
   getById(id: string) {
