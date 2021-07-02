@@ -65,7 +65,7 @@ describe('', () => {
 
 				spyOn(component, 'logout');
 
-				const logoutURL = fixture.debugElement.query(By.css('div.welcome a.mat-button:nth-child(3)'));
+				const logoutURL = fixture.debugElement.query(By.css('div.welcome a.mat-button:nth-child(6)'));
 				logoutURL.triggerEventHandler('click', null);
 
 				fixture.whenStable().then(() => {

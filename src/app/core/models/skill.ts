@@ -3,7 +3,7 @@ import { SkillLevel } from "./skillLevel";
 
 @JsonObject("Skill")
 export class Skill {
-    @JsonProperty("_id", String)
+    @JsonProperty("_id", String, true)
     _id: string = '';
 
     @JsonProperty("skillName", String)
