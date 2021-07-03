@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core'
 import { ApiService } from '@core/services/api/api.service'
-import { Skill } from '../models/skill'
+import { Skill } from '@core/models/skill'
 
 const routes = {
   skillProfile: '/skills/add-skill',
   updateSkill: id => `/skills/update-skill/${id}`,
   getSkill: id => `/skills/${id}`,
+  getSkills:'/skills'
 }
 
 @Injectable({ providedIn: 'root' })
@@ -22,5 +23,8 @@ export class SkillService {
 
   getSkillProfile(id: string) {
     return this.apiService.get(routes.getSkill(id));
+  }
+  getSkills(){
+    return this.apiService.get(routes.getSkills)
   }
 }

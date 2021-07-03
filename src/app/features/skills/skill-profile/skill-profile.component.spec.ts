@@ -6,10 +6,10 @@ import { ReactiveFormsModule, FormsModule, FormBuilder } from '@angular/forms';
 import { SharedModule } from '@app/shared';
 import { SkillProfileComponent } from './skill-profile.component';
 import { AlertService, UserService } from '@app/core';
-import { SkillService } from '../services/skill.service';
+import { SkillService } from '../../../core/services/skill/skill.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { Skill } from '../models/skill';
+import { Skill } from '../../../core/models/skill';
 import { Observable,  of } from 'rxjs';
 
 describe('SkillProfileComponent', () => {

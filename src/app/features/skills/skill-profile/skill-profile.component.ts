@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import {JsonConvert} from "json2typescript"
 import { FieldSpecs } from '@app/shared/validation/field-spec'
-import { Skill } from '../models/skill';
-import { SkillService } from '../services/skill.service';
+import { Skill } from '@core/models/skill';
+import { SkillService } from '@core/services/skill/skill.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { AlertService } from '@app/core';
-import { SkillLevel } from '../models/skillLevel';
+import { SkillLevel } from '@core/models/skillLevel';
 
 @Component({
 	templateUrl: './skill-profile.component.html',
@@ -73,7 +73,6 @@ export class SkillProfileComponent implements OnInit {
             }
         });
 
-        
 	}
 
     initForm = (skill?: Skill) => {
@@ -102,6 +101,7 @@ export class SkillProfileComponent implements OnInit {
             skillLevelDescription: [skillLevel ? skillLevel.skillLevelDescription : '', [FieldSpecs.fieldRequiredValidator('skillLevelDescription', true), FieldSpecs.fieldMaxLengthValidator('skillLevelDescription', true, 2000)]],
         });
 
+        
         const levels = this.skillProfile.get('skillLevels') as FormArray;
         levels.push(skillLevelGroup);
 
@@ -137,7 +137,7 @@ export class SkillProfileComponent implements OnInit {
         )
         .subscribe(result => {
             this.loading = false;
-            this.alertService.success('Your skill have been added successfully!');
+            this.alertService.success('Your skill has been added successfully !');
             this.router.navigate(['/skills']);
         })
     }
@@ -151,7 +151,7 @@ export class SkillProfileComponent implements OnInit {
         )
         .subscribe(result => {
             this.loading = false;
-            this.alertService.success('Your skill have been updated successfully!');
+            this.alertService.success('Your skill has been updated successfully!');
             this.router.navigate(['/skills']);
         })
     }
