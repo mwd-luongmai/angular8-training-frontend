@@ -1,21 +1,21 @@
 import { Component, OnDestroy, OnInit, ViewChild, Inject } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import {MatDialog} from '@angular/material/dialog';
-import { Dialog } from '../dialog/dialog.component';
+import { DialogComponent } from '../dialog/dialog.component';
 import { Router } from '@angular/router'
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { UserSkillRecord } from './user-skill-record';
 import { User } from '@core/models'
 import {
   AlertService,
   AuthenticationService,
   UserService,
+  SkillService
 } from '@core/services'
 import { Observable, Subscription } from 'rxjs'
-import { SkillService } from '@app/features/skills/services/skill.service';
 
 @Component({
-  selector: 'user-skills',
   templateUrl: './user-skills.component.html',
   styleUrls: ['./user-skills.component.scss'],
 })
@@ -28,8 +28,8 @@ export class UserSkillsComponent implements OnInit, OnDestroy {
   passwordForm: FormGroup
   name: string
   animal: string
-  userSkills: PeriodicElement[] = []
-  
+  userSkills: UserSkillRecord[] = []
+  updateEvent$: Observable<string>;
   displayedColumns: string[] = ['skillName', 'skillLevel', 'actions'];
   dataSource: any; 
 
@@ -53,6 +53,12 @@ export class UserSkillsComponent implements OnInit, OnDestroy {
         this.getUserSkills();
       }
     )
+
+    this.updateEvent$ = new Observable(subscriber => {
+      this.getUserSkills();
+      subscriber.next('');
+      subscriber.complete();
+    });
   }
 
   ngOnDestroy() {
@@ -68,7 +74,7 @@ export class UserSkillsComponent implements OnInit, OnDestroy {
   getUserSkills = ()  => {
     this.userService.getUserSkills(this.currentUser.id).subscribe(userSkills => {
       this.userSkills =  userSkills;
-      this.dataSource = new MatTableDataSource<PeriodicElement>(this.userSkills);
+      this.dataSource = new MatTableDataSource<UserSkillRecord>(this.userSkills);
       this.dataSource.paginator = this.paginator;
     })
   }
@@ -88,14 +94,8 @@ export class UserSkillsComponent implements OnInit, OnDestroy {
     )
   }
 
-  updateEvent$ = Observable.create(subscriber => {
-    this.getUserSkills();
-    subscriber.next('');
-    subscriber.complete();
-  });
-
   openDialog(skill?, userSkill?): void {
-    const dialogRef = this.dialog.open(Dialog, {
+    const dialogRef = this.dialog.open(DialogComponent, {
       width: '500px',
       data: skill ? {
         skill,
@@ -111,13 +111,3 @@ export class UserSkillsComponent implements OnInit, OnDestroy {
     });
   }
 }
-
-export interface PeriodicElement {
-  skillName: string;
-  skillNameId: string;
-  skillLevel: number;
-  skillLevelId: string;
-  actions: {update: boolean, delete: boolean};
-}
-
-

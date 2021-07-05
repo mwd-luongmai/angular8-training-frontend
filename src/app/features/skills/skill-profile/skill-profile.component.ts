@@ -130,8 +130,7 @@ export class SkillProfileComponent implements OnInit {
 
     createSkillProfile = () => {
         this.loading = true;
-        const skill = this.convertFormDataToSkill(this.skillProfile.value);
-        this.skillService.createSkillProfile(skill)
+        this.skillService.createSkillProfile(this.skillProfile.value)
         .pipe(
             catchError(this.handleError)
         )
@@ -144,8 +143,7 @@ export class SkillProfileComponent implements OnInit {
 
     updateProfile = () => {
         this.loading = true;
-        const skill = this.convertFormDataToSkill(this.skillProfile.value);
-        this.skillService.updateSkillProfile(this.skillId, skill)
+        this.skillService.updateSkillProfile(this.skillId, this.skillProfile.value)
         .pipe(
             catchError(this.handleError)
         )

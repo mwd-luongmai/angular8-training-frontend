@@ -1,10 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { AlertService, AuthenticationService, User } from '@app/core';
-import { Skill } from '@app/features/skills/models/skill';
-import { SkillLevel } from '@app/features/skills/models/skillLevel';
-import { SkillService } from '@app/features/skills/services/skill.service';
+import { AlertService, AuthenticationService, User, SkillService, SkillLevel, Skill } from '@app/core';
 import { JsonConvert } from 'json2typescript';
 import { Observable, of } from 'rxjs';
 import { map,
@@ -12,18 +9,17 @@ import { map,
   distinctUntilChanged, } from 'rxjs/operators';
 
 @Component({
-  selector: 'dialog-component',
   templateUrl: 'dialog.component.html',
 })
 
-export class Dialog implements OnInit{
+export class DialogComponent  implements OnInit{
   assignSkillForm: FormGroup;
   skills$!: Observable<Skill[]>;
   skillLevels!: SkillLevel[];
   currentUser: User;
 
   constructor(
-    public dialogRef: MatDialogRef<Dialog>,
+    public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {skill: Skill, selectedLevel: string, type: 'update'| 'add'| 'delete', id?: string,  notify: Observable<string>},
     private formBuilder: FormBuilder,
     private skillService: SkillService,
@@ -115,11 +111,4 @@ export class Dialog implements OnInit{
   onNoClick(): void {
     this.dialogRef.close();
   }
-}
-
-export interface DialogData {
-  skillName: string;
-  skillNameId: string;
-  skillLevel: string;
-  skillLevelId: string;
 }
