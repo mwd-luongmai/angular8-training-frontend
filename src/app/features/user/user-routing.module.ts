@@ -7,6 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UserSkillsComponent } from './user-skills/user-skills.component';
 import { ActiveUserComponent } from './active-user/active-user.component';
 import { SearchUserComponent } from './search-user/search-user.component';
 
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: '',
     children: [{ path:'change-password', component: ChangePasswordComponent }],
+  },
+  {
+    path: 'user-skills',
+    component: UserSkillsComponent,
   },
 ]
 
