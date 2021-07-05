@@ -11,10 +11,10 @@
         <ng-container i18n="logo text">SWATANG</ng-container>
       </div>
       <div class="welcome" *ngIf="currentUser">
-        <a mat-button routerLink="/users/search-user"
+        <a mat-button routerLink="/user/search"
           ><mat-icon><i class="material-icons md-dark">search</i></mat-icon></a
         >
-        <a mat-button routerLink="/users/profile"
+        <a mat-button routerLink="/user/profile" 
           ><mat-icon
             ><i class="material-icons md-dark">account_circle</i></mat-icon
           ><span class="name"
@@ -22,6 +22,16 @@
             >{{ currentUser.name }}
             <ng-container i18n="@@hi-ja">Hi </ng-container>!</span
           ></a
+        >
+        <a mat-button routerLink="/user/user-skills"
+          ><mat-icon><i class="material-icons md-dark">assignment</i></mat-icon>Assign skill</a
+        >
+
+        <a mat-button routerLink="/skills/skill-profile"
+          ><mat-icon><i class="material-icons md-dark">add</i></mat-icon>Add skill profile</a
+        >
+        <a mat-button routerLink="/skills/60d96c0c2ba7850e74d1f112"
+          ><mat-icon><i class="material-icons md-dark">edit</i></mat-icon>Update skill</a
         >
         <a mat-button (click)="logout()"
           ><mat-icon><i class="material-icons md-dark">exit_to_app</i></mat-icon
@@ -48,7 +58,7 @@
         <mat-nav-list *ngIf="currentUser">
           <a
             mat-list-item
-            routerLink="/users/search-user"
+            routerLink="/user/search"
             (click)="sidenav.toggle()"
             ><mat-icon
               ><i class="material-icons md-dark">search</i></mat-icon

@@ -10,6 +10,8 @@ import { ChangeThemeComponent } from './components/change-theme/change-theme.com
 import { ChangeLanguageComponent } from './components/change-language/change-language.component'
 import { SafePipe } from '@app/safe.pipe'
 import { TableBasicResponsiveComponent } from './components/table-basic-responsive/table-basic-responsive.component'
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SelectComponent } from './components/select/select.component'
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { TableBasicResponsiveComponent } from './components/table-basic-responsi
     ChangeLanguageComponent,
     SafePipe,
     TableBasicResponsiveComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     CustomMaterialModule,
     FormsModule,
+    CKEditorModule
   ],
   exports: [
     AlertComponent,
@@ -37,6 +41,7 @@ import { TableBasicResponsiveComponent } from './components/table-basic-responsi
     ChangeThemeComponent,
     ChangeLanguageComponent,
     TableBasicResponsiveComponent,
+    SelectComponent
   ],
 })
 export class SharedModule {}

@@ -1,2 +1,4 @@
 node_modules
 dist/
+unit_report/
+.DS_Store

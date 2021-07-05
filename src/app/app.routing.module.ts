@@ -16,12 +16,21 @@ const appRoutes: Routes = [
     loadChildren:
       () => import('./features/authentication/authentication.module').then(m => m.AuthenticationModule),
   },
+  {
+    path: 'user',
+    loadChildren: () => import('./features/user/user.module').then(m => m.UserModule),
+  },
+  {
+    path: 'skills',
+    loadChildren:
+      () => import('./features/skills/skill.module').then(m => m.SkillModule),
+  },
   // otherwise redirect to home
   { path: '**', redirectTo: '/home' },
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
+  imports: [RouterModule.forRoot(appRoutes, { useHash: false })],
   exports: [RouterModule],
   providers: [],
 })

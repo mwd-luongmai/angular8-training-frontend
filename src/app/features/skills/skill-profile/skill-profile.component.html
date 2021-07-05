@@ -1,0 +1,113 @@
+<div class="flex-comp-container skill-profile">
+  <div class="message" *ngIf="errorMessages.server_message && skillId !='' "><h2>{{errorsDef.server_message}}</h2></div>
+    <mat-card *ngIf="isComponentReady">
+      <mat-card-title class="align-left">{{ skillId?"Update":"Create" }} Skill Profile </mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="skillProfile" (ngSubmit)="onSubmit()">
+          <div class="clear-float">
+            <button (click)="onSubmit()" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
+              <mat-icon><i class="material-icons md-dark">save</i></mat-icon>
+              {{ skillId?"Update":"Create" }} skill
+            </button>
+          </div>
+          {{messages}}
+
+          <div id="form-error">
+            <validation-messages
+              *ngIf="isError"
+              [errors]="errorMessages"
+              [errorsDef]="errorsDef"
+            ></validation-messages>
+          </div>
+          
+          <form-input
+            formControlName="skillName"
+            [errors]="skillProfileForm.skillName.errors"
+            [errorVisible]="!skillProfileForm.skillName.pristine || submitted"
+            [placeholder]="'Enter your skill profile name'"
+            id="skill-name"
+          ></form-input>
+
+          <form-input
+            formControlName="skillSchemaName"
+            [errors]="skillProfileForm.skillSchemaName.errors"
+            [errorVisible]="!skillProfileForm.skillSchemaName.pristine || submitted"
+            [placeholder]="'Enter your skill schema name'"
+            id="skill-schema-name"
+          ></form-input>
+         
+
+          
+        
+
+          <mat-slide-toggle 
+            formControlName="skillStatus"
+            class="example-margin"  
+            
+                 
+            >
+            {{skillProfileForm.skillStatus.value?"Enabled":"Disabled"}}
+          </mat-slide-toggle>
+
+          <br>
+          <br>
+          <div class="clear-float">Skill Levels</div>
+          <div class="clear-float">
+            <button type="button" (click)="onAddSkillLevel()" id="add-skill-button" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
+              <mat-icon><i class="material-icons md-dark">add</i></mat-icon>
+              Add skill level
+            </button>
+            <br>
+          </div>
+
+          <div formArrayName="skillLevels" class="clear-float">
+            
+            <div *ngFor="let skill of skillLevels.controls; let i=index">
+              <div  [formGroupName]="i" class="skill-level-detail" id="skill-level-index-{{i}}">
+                <mat-card>
+                  <mat-card-title class="align-left skill-level-title"> {{skill.get('skillLevelName').value}} 
+                    <button type="button" (click)="removeSkillLevel(i)" id="remove-skill-button-{{i}}" [disabled]="loading" mat-mini-fab color="warn" class="remove-skill-level">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </mat-card-title>
+                  <mat-card-content>
+                    
+                      <form-input
+                        formControlName="skillLevelName"
+                        [errors]="skill.get('skillLevelName').errors"
+                        [errorVisible]="!skill.get('skillLevelName').pristine || submitted"
+                        [placeholder]="'Enter your skill level'"
+                        id="skill-level-name-{{i}}"
+                      ></form-input>
+
+                      <br>
+                      <br>
+                      <form-input
+                        formControlName="skillLevelDescription"
+                        [type]="'editor'"
+                        [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic' ], initialData: skill.get('skillLevelDescription').value}"
+                        [errors]="skill.get('skillLevelDescription').errors"
+                        [errorVisible]="!skill.get('skillLevelDescription').pristine || submitted"
+                        [placeholder]="'Skill level description'"
+                        id="skill-level-description-{{i}}"
+                      ></form-input>
+
+                  </mat-card-content>
+                </mat-card>  
+              </div>
+            </div>
+          </div>
+          
+          <div class="clear-float" *ngIf="skillLevels.controls.length > 0">
+            <button (click)="onSubmit()" mat-raised-button [disabled]="loading" color="primary" class="add-skill-level">
+              <mat-icon><i class="material-icons md-dark">save</i></mat-icon>
+              {{ skillId?"Update":"Create" }} skill
+            </button>
+          </div>
+          <br>
+          <br>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <app-loading [visible]="loading"></app-loading>
+</div>
