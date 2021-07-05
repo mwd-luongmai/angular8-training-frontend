@@ -12,8 +12,7 @@
     "start": "node server.js",
     "e2e": "ng e2e",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "lint:fix": "ng lint --fix",
-    "postinstall": "ng build --aot --prod"
+    "lint:fix": "ng lint --fix"
   },
   "private": true,
   "dependencies": {
