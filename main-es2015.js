@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- main app container -->\n<div class=\"jumbotron\">\n  <div class=\"container\">\n    <mat-toolbar\n      color=\"primary\"\n      class=\"toolbar\"\n      fxShow=\"true\"\n      fxHide.lt-md=\"true\"\n    >\n      <div class=\"logo\" routerLink=\"/\">\n        <ng-container i18n=\"logo text\">SWATANG</ng-container>\n      </div>\n      <div class=\"welcome\" *ngIf=\"currentUser\">\n        <a mat-button routerLink=\"/users/search-user\"\n          ><mat-icon><i class=\"material-icons md-dark\">search</i></mat-icon></a\n        >\n        <a mat-button routerLink=\"/users/profile\"\n          ><mat-icon\n            ><i class=\"material-icons md-dark\">account_circle</i></mat-icon\n          ><span class=\"name\"\n            ><ng-container i18n=\"@@hi-en\">Hi </ng-container\n            >{{ currentUser.name }}\n            <ng-container i18n=\"@@hi-ja\">Hi </ng-container>!</span\n          ></a\n        >\n        <a mat-button (click)=\"logout()\"\n          ><mat-icon><i class=\"material-icons md-dark\">exit_to_app</i></mat-icon\n          ><ng-container i18n=\"@@logout-link\">Log out</ng-container></a\n        >\n      </div>\n    </mat-toolbar>\n    <mat-toolbar\n      color=\"primary\"\n      class=\"m-toolbar\"\n      fxShow=\"true\"\n      fxHide.gt-sm=\"true\"\n    >\n      <button mat-icon-button (click)=\"sidenav.toggle()\" *ngIf=\"currentUser\">\n        <mat-icon>menu</mat-icon>\n      </button>\n      <span class=\"logo\" routerLink=\"/\">\n        <ng-container i18n=\"logo text\">SWATANG</ng-container>\n      </span>\n    </mat-toolbar>\n\n    <mat-sidenav-container fxHide.gt-sm=\"true\">\n      <mat-sidenav #sidenav mode=\"over\" fixedInViewport=\"true\" fixedTopGap=\"56\">\n        <mat-nav-list *ngIf=\"currentUser\">\n          <a\n            mat-list-item\n            routerLink=\"/users/search-user\"\n            (click)=\"sidenav.toggle()\"\n            ><mat-icon\n              ><i class=\"material-icons md-dark\">search</i></mat-icon\n            ></a\n          >\n          <a\n            mat-list-item\n            routerLink=\"/users/profile\"\n            (click)=\"sidenav.toggle()\"\n            ><mat-icon\n              ><i class=\"material-icons md-dark\">account_circle</i></mat-icon\n            ><span class=\"name\"\n              ><ng-container i18n=\"@@hi-en\">Hi </ng-container\n              >{{ currentUser.name }}\n              <ng-container i18n=\"@@hi-ja\">Hi </ng-container>!</span\n            ></a\n          >\n          <a mat-list-item (click)=\"logout()\" (click)=\"sidenav.toggle()\"\n            ><mat-icon\n              ><i class=\"material-icons md-dark\">exit_to_app</i></mat-icon\n            ><ng-container i18n=\"@@logout-link\">Log out</ng-container></a\n          >\n        </mat-nav-list>\n      </mat-sidenav>\n    </mat-sidenav-container>\n\n    <div class=\"themes\">\n      <app-change-theme (themeChange)=\"applyTheme($event)\"></app-change-theme>\n      <app-change-language\n        (changeLanguage)=\"changeLang($event)\"\n      ></app-change-language>\n    </div>\n\n    <app-alert></app-alert>\n    <router-outlet></router-outlet>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- main app container -->\n<div class=\"jumbotron\">\n  <div class=\"container\">\n    <mat-toolbar\n      color=\"primary\"\n      class=\"toolbar\"\n      fxShow=\"true\"\n      fxHide.lt-md=\"true\"\n    >\n      <div class=\"logo\" routerLink=\"/\">\n        <ng-container i18n=\"logo text\">SWATANG</ng-container>\n      </div>\n      <div class=\"welcome\" *ngIf=\"currentUser\">\n        <a mat-button routerLink=\"/user/search\"\n          ><mat-icon><i class=\"material-icons md-dark\">search</i></mat-icon></a\n        >\n        <a mat-button routerLink=\"/user/profile\" \n          ><mat-icon\n            ><i class=\"material-icons md-dark\">account_circle</i></mat-icon\n          ><span class=\"name\"\n            ><ng-container i18n=\"@@hi-en\">Hi </ng-container\n            >{{ currentUser.name }}\n            <ng-container i18n=\"@@hi-ja\">Hi </ng-container>!</span\n          ></a\n        >\n        <a mat-button routerLink=\"/user/user-skills\"\n          ><mat-icon><i class=\"material-icons md-dark\">assignment</i></mat-icon>Assign skill</a\n        >\n\n        <a mat-button routerLink=\"/skills/skill-profile\"\n          ><mat-icon><i class=\"material-icons md-dark\">add</i></mat-icon>Add skill profile</a\n        >\n        <a mat-button routerLink=\"/skills/60d96c0c2ba7850e74d1f112\"\n          ><mat-icon><i class=\"material-icons md-dark\">edit</i></mat-icon>Update skill</a\n        >\n        <a mat-button (click)=\"logout()\"\n          ><mat-icon><i class=\"material-icons md-dark\">exit_to_app</i></mat-icon\n          ><ng-container i18n=\"@@logout-link\">Log out</ng-container></a\n        >\n      </div>\n    </mat-toolbar>\n    <mat-toolbar\n      color=\"primary\"\n      class=\"m-toolbar\"\n      fxShow=\"true\"\n      fxHide.gt-sm=\"true\"\n    >\n      <button mat-icon-button (click)=\"sidenav.toggle()\" *ngIf=\"currentUser\">\n        <mat-icon>menu</mat-icon>\n      </button>\n      <span class=\"logo\" routerLink=\"/\">\n        <ng-container i18n=\"logo text\">SWATANG</ng-container>\n      </span>\n    </mat-toolbar>\n\n    <mat-sidenav-container fxHide.gt-sm=\"true\">\n      <mat-sidenav #sidenav mode=\"over\" fixedInViewport=\"true\" fixedTopGap=\"56\">\n        <mat-nav-list *ngIf=\"currentUser\">\n          <a\n            mat-list-item\n            routerLink=\"/user/search\"\n            (click)=\"sidenav.toggle()\"\n            ><mat-icon\n              ><i class=\"material-icons md-dark\">search</i></mat-icon\n            ></a\n          >\n          <a\n            mat-list-item\n            routerLink=\"/users/profile\"\n            (click)=\"sidenav.toggle()\"\n            ><mat-icon\n              ><i class=\"material-icons md-dark\">account_circle</i></mat-icon\n            ><span class=\"name\"\n              ><ng-container i18n=\"@@hi-en\">Hi </ng-container\n              >{{ currentUser.name }}\n              <ng-container i18n=\"@@hi-ja\">Hi </ng-container>!</span\n            ></a\n          >\n          <a mat-list-item (click)=\"logout()\" (click)=\"sidenav.toggle()\"\n            ><mat-icon\n              ><i class=\"material-icons md-dark\">exit_to_app</i></mat-icon\n            ><ng-container i18n=\"@@logout-link\">Log out</ng-container></a\n          >\n        </mat-nav-list>\n      </mat-sidenav>\n    </mat-sidenav-container>\n\n    <div class=\"themes\">\n      <app-change-theme (themeChange)=\"applyTheme($event)\"></app-change-theme>\n      <app-change-language\n        (changeLanguage)=\"changeLang($event)\"\n      ></app-change-language>\n    </div>\n\n    <app-alert></app-alert>\n    <router-outlet></router-outlet>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-form-field>\n  <mat-icon matPrefix\n    ><i class=\"material-icons md-dark\">{{ icon }}</i></mat-icon\n  >\n  <input\n    *ngIf=\"type !== 'textarea'\"\n    matInput\n    placeholder=\"{{ placeholder }}\"\n    [(ngModel)]=\"value\"\n    [attr.type]=\"type\"\n    (blur)=\"onBlur()\"\n  />\n  <textarea\n    *ngIf=\"type === 'textarea'\"\n    matInput\n    rows=\"{{ rows }}\"\n    placeholder=\"{{ placeholder }}\"\n    [(ngModel)]=\"value\"\n    [attr.type]=\"type\"\n    (blur)=\"onBlur()\"\n  ></textarea>\n  <validation-messages\n    *ngIf=\"errorVisible && errors\"\n    [errors]=\"errors\"\n    [errorsDef]=\"errorsDef\"\n  ></validation-messages>\n</mat-form-field>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-form-field *ngIf=\"type != 'editor'\">\n  <mat-icon *ngIf=\"icon != ''\" matPrefix\n    ><i class=\"material-icons md-dark\">{{ icon }}</i></mat-icon\n  >\n  <input\n    *ngIf=\"type !== 'textarea' && type != 'editor'\"\n    matInput\n    placeholder=\"{{ placeholder }}\"\n    [(ngModel)]=\"value\"\n    [attr.type]=\"type\"\n    (blur)=\"onBlur()\"\n  />\n  <textarea\n    *ngIf=\"type === 'textarea'\"\n    matInput\n    rows=\"{{ rows }}\"\n    placeholder=\"{{ placeholder }}\"\n    [(ngModel)]=\"value\"\n    [attr.type]=\"type\"\n    (blur)=\"onBlur()\"\n  ></textarea>\n  <validation-messages\n    *ngIf=\"errorVisible && errors\"\n    [errors]=\"errors\"\n    [errorsDef]=\"errorsDef\"\n  ></validation-messages>\n</mat-form-field>\n<div *ngIf=\"type === 'editor'\">\n  <div>{{ placeholder }}</div>\n  <br>\n  <ckeditor \n    *ngIf=\"type === 'editor'\"\n    mat-form-field\n    [config]=\"config\"\n    [(ngModel)]=\"value\"\n    [editor] =\"getEditorInit\"\n    (blur)=\"onBlur()\"\n  ></ckeditor>\n\n  <validation-messages\n    *ngIf=\"errorVisible && errors\"\n    [errors]=\"errors\"\n    [errorsDef]=\"errorsDef\"\n  ></validation-messages>\n</div>\n");
 
 /***/ }),
 
@@ -75,6 +75,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"visible\">\n  <img\n    class=\"loading\"\n    src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"\n  />\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/select/select.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/select/select.component.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-form-field>\n    <mat-label>{{label}}</mat-label>\n    <mat-icon matPrefix>\n        <i class=\"material-icons md-dark\">{{ icon }}</i>\n    </mat-icon>\n    <mat-select [(value)]=\"value\" [disabled]=\"disabled\">\n        <mat-option *ngFor=\"let item of options \" [value]=\"item.value\">{{item.text}}</mat-option>\n    </mat-select>\n    <validation-messages *ngIf=\"errorVisible && errors\" [errors]=\"errors\" [errorsDef]=\"errorsDef\"></validation-messages>\n</mat-form-field>\n");
 
 /***/ }),
 
@@ -343,7 +356,15 @@ const appRoutes = [
     },
     {
         path: 'auth',
-        loadChildren: () => __webpack_require__.e(/*! import() | features-authentication-authentication-module */ "features-authentication-authentication-module").then(__webpack_require__.bind(null, /*! ./features/authentication/authentication.module */ "./src/app/features/authentication/authentication.module.ts")).then(m => m.AuthenticationModule),
+        loadChildren: () => Promise.all(/*! import() | features-authentication-authentication-module */[__webpack_require__.e("common"), __webpack_require__.e("features-authentication-authentication-module")]).then(__webpack_require__.bind(null, /*! ./features/authentication/authentication.module */ "./src/app/features/authentication/authentication.module.ts")).then(m => m.AuthenticationModule),
+    },
+    {
+        path: 'user',
+        loadChildren: () => Promise.all(/*! import() | features-user-user-module */[__webpack_require__.e("common"), __webpack_require__.e("features-user-user-module")]).then(__webpack_require__.bind(null, /*! ./features/user/user.module */ "./src/app/features/user/user.module.ts")).then(m => m.UserModule),
+    },
+    {
+        path: 'skills',
+        loadChildren: () => Promise.all(/*! import() | features-skills-skill-module */[__webpack_require__.e("common"), __webpack_require__.e("features-skills-skill-module")]).then(__webpack_require__.bind(null, /*! ./features/skills/skill.module */ "./src/app/features/skills/skill.module.ts")).then(m => m.SkillModule),
     },
     // otherwise redirect to home
     { path: '**', redirectTo: '/home' },
@@ -352,7 +373,7 @@ let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes, { useHash: true })],
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(appRoutes, { useHash: false })],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
         providers: [],
     })
@@ -570,7 +591,7 @@ function throwIfAlreadyLoaded(parentModule, moduleName) {
 /*!*******************************!*\
   !*** ./src/app/core/index.ts ***!
   \*******************************/
-/*! exports provided: CoreModule, CustomMaterialModule, AppConfig, AuthGuard, ErrorInterceptor, JwtInterceptor, User, AlertService, AuthenticationService, UserService, ApiService */
+/*! exports provided: CoreModule, CustomMaterialModule, AppConfig, AuthGuard, ErrorInterceptor, JwtInterceptor, User, Skill, SkillLevel, AlertService, AuthenticationService, UserService, ApiService, SkillService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -595,6 +616,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models */ "./src/app/core/models/index.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "User", function() { return _models__WEBPACK_IMPORTED_MODULE_5__["User"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Skill", function() { return _models__WEBPACK_IMPORTED_MODULE_5__["Skill"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SkillLevel", function() { return _models__WEBPACK_IMPORTED_MODULE_5__["SkillLevel"]; });
+
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services */ "./src/app/core/services/index.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AlertService", function() { return _services__WEBPACK_IMPORTED_MODULE_6__["AlertService"]; });
 
@@ -603,6 +628,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return _services__WEBPACK_IMPORTED_MODULE_6__["UserService"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return _services__WEBPACK_IMPORTED_MODULE_6__["ApiService"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SkillService", function() { return _services__WEBPACK_IMPORTED_MODULE_6__["SkillService"]; });
 
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -892,7 +919,7 @@ CustomMaterialModule = __decorate([
 /*!**************************************!*\
   !*** ./src/app/core/models/index.ts ***!
   \**************************************/
-/*! exports provided: User */
+/*! exports provided: User, Skill, SkillLevel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -900,9 +927,133 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ "./src/app/core/models/user.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "User", function() { return _user__WEBPACK_IMPORTED_MODULE_0__["User"]; });
 
+/* harmony import */ var _skill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./skill */ "./src/app/core/models/skill.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Skill", function() { return _skill__WEBPACK_IMPORTED_MODULE_1__["Skill"]; });
+
+/* harmony import */ var _skillLevel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./skillLevel */ "./src/app/core/models/skillLevel.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SkillLevel", function() { return _skillLevel__WEBPACK_IMPORTED_MODULE_2__["SkillLevel"]; });
+
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/core/models/skill.ts":
+/*!**************************************!*\
+  !*** ./src/app/core/models/skill.ts ***!
+  \**************************************/
+/*! exports provided: Skill */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Skill", function() { return Skill; });
+/* harmony import */ var json2typescript__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! json2typescript */ "./node_modules/json2typescript/index.js");
+/* harmony import */ var json2typescript__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(json2typescript__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _skillLevel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./skillLevel */ "./src/app/core/models/skillLevel.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+let Skill = class Skill {
+    constructor() {
+        this._id = '';
+        this.skillName = '';
+        this.skillSchemaName = '';
+        this.skillStatus = true;
+        this.skillLevels = undefined;
+    }
+};
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("_id", String, true),
+    __metadata("design:type", String)
+], Skill.prototype, "_id", void 0);
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("skillName", String),
+    __metadata("design:type", String)
+], Skill.prototype, "skillName", void 0);
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("skillSchemaName", String),
+    __metadata("design:type", String)
+], Skill.prototype, "skillSchemaName", void 0);
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("skillStatus", Boolean),
+    __metadata("design:type", Boolean)
+], Skill.prototype, "skillStatus", void 0);
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("skillLevels", [_skillLevel__WEBPACK_IMPORTED_MODULE_1__["SkillLevel"]]),
+    __metadata("design:type", Array)
+], Skill.prototype, "skillLevels", void 0);
+Skill = __decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonObject"])("Skill")
+], Skill);
+
+
+
+/***/ }),
+
+/***/ "./src/app/core/models/skillLevel.ts":
+/*!*******************************************!*\
+  !*** ./src/app/core/models/skillLevel.ts ***!
+  \*******************************************/
+/*! exports provided: SkillLevel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SkillLevel", function() { return SkillLevel; });
+/* harmony import */ var json2typescript__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! json2typescript */ "./node_modules/json2typescript/index.js");
+/* harmony import */ var json2typescript__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(json2typescript__WEBPACK_IMPORTED_MODULE_0__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+let SkillLevel = class SkillLevel {
+    constructor() {
+        this._id = '';
+        this.skillLevelName = '';
+        this.skillLevelDescription = '';
+    }
+};
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("_id", String, true),
+    __metadata("design:type", String)
+], SkillLevel.prototype, "_id", void 0);
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("skillLevelName", String),
+    __metadata("design:type", String)
+], SkillLevel.prototype, "skillLevelName", void 0);
+__decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonProperty"])("skillLevelDescription", String),
+    __metadata("design:type", String)
+], SkillLevel.prototype, "skillLevelDescription", void 0);
+SkillLevel = __decorate([
+    Object(json2typescript__WEBPACK_IMPORTED_MODULE_0__["JsonObject"])("SkillLevel")
+], SkillLevel);
 
 
 
@@ -1163,6 +1314,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 const routes = {
     login: '/users/authenticate',
     logout: '/users/logout',
+    signup: '/users/register'
 };
 let AuthenticationService = class AuthenticationService {
     constructor(apiService) {
@@ -1185,6 +1337,10 @@ let AuthenticationService = class AuthenticationService {
             }
             return user;
         }));
+    }
+    signUp(name, username, email, password) {
+        console.log("url", window.location.href);
+        return this.apiService.post(routes.signup, { name, username, email, password, url: window.location.href });
     }
     logout() {
         this.apiService.post(routes.logout).subscribe();
@@ -1215,7 +1371,7 @@ AuthenticationService = __decorate([
 /*!****************************************!*\
   !*** ./src/app/core/services/index.ts ***!
   \****************************************/
-/*! exports provided: AlertService, AuthenticationService, UserService, ApiService */
+/*! exports provided: AlertService, AuthenticationService, UserService, ApiService, SkillService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1232,12 +1388,97 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api/api.service */ "./src/app/core/services/api/api.service.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return _api_api_service__WEBPACK_IMPORTED_MODULE_3__["ApiService"]; });
 
+/* harmony import */ var _skill_skill_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./skill/skill.service */ "./src/app/core/services/skill/skill.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SkillService", function() { return _skill_skill_service__WEBPACK_IMPORTED_MODULE_4__["SkillService"]; });
+
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
 
 
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/core/services/skill/skill.service.ts":
+/*!******************************************************!*\
+  !*** ./src/app/core/services/skill/skill.service.ts ***!
+  \******************************************************/
+/*! exports provided: SkillService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SkillService", function() { return SkillService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _core_services_api_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @core/services/api/api.service */ "./src/app/core/services/api/api.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+const routes = {
+    skillProfile: '/skills/add-skill',
+    updateSkill: id => `/skills/update-skill/${id}`,
+    getSkill: id => `/skills/${id}`,
+    getSkills: '/skills',
+    getAllSkills: '/skills',
+    searchSkill: name => `/skills/search/${name}`,
+    assignSkill: (skillId, skillLevelId, userId) => `/users/assign-skill/${skillId}/${skillLevelId}/${userId}`,
+    removeUserSkill: (skillId, userId) => `/users/remove-skill/${skillId}/${userId}`,
+    updateUserSkill: (id, skillId, skillLevelId, userId) => `/users/update-skill/${id}/${skillId}/${skillLevelId}/${userId}`,
+};
+let SkillService = class SkillService {
+    constructor(apiService) {
+        this.apiService = apiService;
+    }
+    createSkillProfile(skill) {
+        return this.apiService.post(routes.skillProfile, skill);
+    }
+    updateSkillProfile(id, skill) {
+        return this.apiService.put(routes.updateSkill(id), skill);
+    }
+    getSkillProfile(id) {
+        return this.apiService.get(routes.getSkill(id));
+    }
+    getSkills() {
+        return this.apiService.get(routes.getSkills);
+    }
+    getAllSkills() {
+        return this.apiService.get(routes.getAllSkills);
+    }
+    searchSkill(name) {
+        return this.apiService.get(routes.searchSkill(name));
+    }
+    assignSkill(skillId, skillLevelId, userId) {
+        return this.apiService.put(routes.assignSkill(skillId, skillLevelId, userId));
+    }
+    removeUserSkill(skillId, userId) {
+        return this.apiService.put(routes.removeUserSkill(skillId, userId));
+    }
+    updateUserSkill(id, skillId, skillLevelId, userId) {
+        return this.apiService.put(routes.updateUserSkill(id, skillId, skillLevelId, userId));
+    }
+};
+SkillService.ctorParameters = () => [
+    { type: _core_services_api_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"] }
+];
+SkillService = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({ providedIn: 'root' }),
+    __metadata("design:paramtypes", [_core_services_api_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
+], SkillService);
 
 
 
@@ -1286,10 +1527,12 @@ const routes = {
     register: '/users/register',
     changePassword: (id) => `/users/${id}/password`,
     deactivate: (id) => `/users/${id}/deactivate`,
+    active: (id) => `/users/${id}/active`,
     search: (keyword, method) => `/users/search/${keyword}/${method}`,
     deleteAccount: '/users/deleteAccount',
     forgotPassword: '/users/forgot-password',
     resetPassword: '/users/reset-password',
+    userSkills: id => `/users/skills/${id}`,
 };
 let UserService = class UserService {
     constructor(apiService, authenticationService) {
@@ -1301,6 +1544,9 @@ let UserService = class UserService {
         return this.apiService.get(routes.users).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(users => {
             return this.jsonConvert.deserializeArray(users, _core_models__WEBPACK_IMPORTED_MODULE_2__["User"]);
         }));
+    }
+    getUserSkills(id) {
+        return this.apiService.get(routes.userSkills(id));
     }
     getById(id) {
         return this.apiService.get(routes.user(id)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(user => {
@@ -1317,6 +1563,9 @@ let UserService = class UserService {
     }
     deactivate(id) {
         return this.apiService.put(routes.deactivate(id));
+    }
+    active(id) {
+        return this.apiService.put(routes.active(id));
     }
     deleteAccount(id, password) {
         const body = { id, password };
@@ -1361,6 +1610,20 @@ let UserService = class UserService {
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
             this.authenticationService.refreshLocalData();
         }
+    }
+    changePassword(id, old_password, new_password) {
+        return this.apiService.put(routes.changePassword(id), { old_password, new_password });
+    }
+    forgotPassword(email, url) {
+        return this.apiService.post(routes.forgotPassword, { email, url });
+    }
+    resetPassword(resetToken, password) {
+        return this.apiService.post(routes.resetPassword, { resetToken, password });
+    }
+    search(method, keyword) {
+        return this.apiService.get(routes.search(keyword, method)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(users => {
+            return this.jsonConvert.deserializeArray(users, _core_models__WEBPACK_IMPORTED_MODULE_2__["User"]);
+        }));
     }
 };
 UserService.ctorParameters = () => [
@@ -1670,7 +1933,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR", function() { return CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputComponent", function() { return InputComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1685,9 +1950,10 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 
 
+
 const noop = () => { };
 const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR = {
-    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"],
+    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NG_VALUE_ACCESSOR"],
     useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => InputComponent),
     multi: true,
 };
@@ -1701,6 +1967,9 @@ let InputComponent = class InputComponent {
         this.innerValue = '';
         this.onTouchedCallback = noop;
         this.onChangeCallback = noop;
+    }
+    get getEditorInit() {
+        return _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1__;
     }
     get value() {
         return this.innerValue;
@@ -1762,6 +2031,10 @@ __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
     __metadata("design:type", String)
 ], InputComponent.prototype, "icon", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Object)
+], InputComponent.prototype, "config", void 0);
 InputComponent = __decorate([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
         // tslint:disable-next-line:component-selector
@@ -1828,6 +2101,134 @@ LoadingComponent = __decorate([
         styles: [__importDefault(__webpack_require__(/*! ./loading.component.scss */ "./src/app/shared/components/loading/loading.component.scss")).default]
     })
 ], LoadingComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/select/select.component.scss":
+/*!****************************************************************!*\
+  !*** ./src/app/shared/components/select/select.component.scss ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3NlbGVjdC9zZWxlY3QuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/select/select.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/shared/components/select/select.component.ts ***!
+  \**************************************************************/
+/*! exports provided: SelectComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectComponent", function() { return SelectComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var SelectComponent_1;
+
+
+let SelectComponent = SelectComponent_1 = class SelectComponent {
+    constructor() {
+        this.icon = '';
+        this.label = '';
+        this.options = [];
+        this.errorVisible = false;
+        this.valueChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.disabled = false;
+        this.onChangeFunc = () => { };
+        this.onTouchFunc = () => { };
+    }
+    set value(v) {
+        if (v !== this.innerValue) {
+            this.innerValue = v;
+            this.valueChanged.emit(v);
+            this.onChangeFunc(this.innerValue);
+        }
+    }
+    get value() {
+        return this.innerValue;
+    }
+    writeValue(obj) {
+        if (obj !== this.innerValue) {
+            this.innerValue = obj;
+            this.onChangeFunc(this.innerValue);
+        }
+    }
+    registerOnChange(fn) {
+        this.onChangeFunc = fn;
+    }
+    registerOnTouched(fn) {
+        this.onTouchFunc = fn;
+    }
+    setDisabledState(isDisabled) {
+        this.disabled = isDisabled;
+    }
+    get hasError() {
+        for (const error in this.errors) {
+            if (this.errors[error]) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", String)
+], SelectComponent.prototype, "icon", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", String)
+], SelectComponent.prototype, "label", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Array)
+], SelectComponent.prototype, "options", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Object)
+], SelectComponent.prototype, "errorVisible", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Object)
+], SelectComponent.prototype, "errors", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+    __metadata("design:type", Object)
+], SelectComponent.prototype, "errorsDef", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+    __metadata("design:type", Object)
+], SelectComponent.prototype, "valueChanged", void 0);
+SelectComponent = SelectComponent_1 = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        // tslint:disable-next-line:component-selector
+        selector: 'form-select',
+        template: __importDefault(__webpack_require__(/*! raw-loader!./select.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/select/select.component.html")).default,
+        providers: [{ provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"], useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => SelectComponent_1), multi: true }],
+        styles: [__importDefault(__webpack_require__(/*! ./select.component.scss */ "./src/app/shared/components/select/select.component.scss")).default]
+    }),
+    __metadata("design:paramtypes", [])
+], SelectComponent);
 
 
 
@@ -2096,6 +2497,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_change_language_change_language_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/change-language/change-language.component */ "./src/app/shared/components/change-language/change-language.component.ts");
 /* harmony import */ var _app_safe_pipe__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @app/safe.pipe */ "./src/app/safe.pipe.ts");
 /* harmony import */ var _components_table_basic_responsive_table_basic_responsive_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/table-basic-responsive/table-basic-responsive.component */ "./src/app/shared/components/table-basic-responsive/table-basic-responsive.component.ts");
+/* harmony import */ var _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ckeditor/ckeditor5-angular */ "./node_modules/@ckeditor/ckeditor5-angular/fesm2015/ckeditor-ckeditor5-angular.js");
+/* harmony import */ var _components_select_select_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/select/select.component */ "./src/app/shared/components/select/select.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2105,6 +2508,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -2130,12 +2535,14 @@ SharedModule = __decorate([
             _components_change_language_change_language_component__WEBPACK_IMPORTED_MODULE_9__["ChangeLanguageComponent"],
             _app_safe_pipe__WEBPACK_IMPORTED_MODULE_10__["SafePipe"],
             _components_table_basic_responsive_table_basic_responsive_component__WEBPACK_IMPORTED_MODULE_11__["TableBasicResponsiveComponent"],
+            _components_select_select_component__WEBPACK_IMPORTED_MODULE_13__["SelectComponent"],
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
             _app_core__WEBPACK_IMPORTED_MODULE_5__["CustomMaterialModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+            _ckeditor_ckeditor5_angular__WEBPACK_IMPORTED_MODULE_12__["CKEditorModule"]
         ],
         exports: [
             _components_alert_alert_component__WEBPACK_IMPORTED_MODULE_2__["AlertComponent"],
@@ -2146,6 +2553,7 @@ SharedModule = __decorate([
             _components_change_theme_change_theme_component__WEBPACK_IMPORTED_MODULE_8__["ChangeThemeComponent"],
             _components_change_language_change_language_component__WEBPACK_IMPORTED_MODULE_9__["ChangeLanguageComponent"],
             _components_table_basic_responsive_table_basic_responsive_component__WEBPACK_IMPORTED_MODULE_11__["TableBasicResponsiveComponent"],
+            _components_select_select_component__WEBPACK_IMPORTED_MODULE_13__["SelectComponent"]
         ],
     })
 ], SharedModule);
@@ -2202,11 +2610,11 @@ class FieldValidators {
     }
     static matchPassword() {
         return (control) => {
-            const password = control.get('newpassword').value;
-            const confirmPassword = control.get('confirmpassword').value;
+            const password = control.get('password').value;
+            const confirmPassword = control.get('confirmPassword').value;
             const isValid = password === confirmPassword;
             if (!isValid) {
-                control.get('confirmpassword').setErrors({ matchPassword: true });
+                control.get('confirmPassword').setErrors({ matchPassword: true });
             }
             return isValid ? null : { matchPassword: { value: confirmPassword } };
         };
@@ -2272,9 +2680,15 @@ let ValidationService = class ValidationService {
         this.fieldValidationMessages = {
             usernameMinLength: 'Minimum length of username must be 6 characters.',
             usernameRequired: 'Username is required.',
+            skillNameRequired: 'Skill name is required.',
+            skillSchemaNameRequired: 'Skill schema name is required.',
             usernamePattern: 'Username must contain only alphabetic characters.',
             nameRequired: 'Name is required.',
             nameMaxLength: 'The maximum length of name is 50 characters.',
+            skillNameMaxLength: 'The maximum length of a skill name is 100 characters.',
+            skillLevelDescription: 'The maximum length of a skill level description is 2000 characters.',
+            skillSchemaNameLength: 'The maximum length of skill schema name is 100 characters.',
+            skillLevelName: 'The maximum length of a skill level name is 50 characters.',
             emailRequired: 'Email is required.',
             emailPattern: 'Please enter a valid email address.',
             passwordRequired: 'Password is required.',
@@ -2290,6 +2704,7 @@ let ValidationService = class ValidationService {
             // others:
             required: 'Field is required.',
             minLength: 'Mininum length is required',
+            notSame: 'Password does not match.'
         };
     }
     getValidationErrorMessage(validatorName, errorsDef) {
