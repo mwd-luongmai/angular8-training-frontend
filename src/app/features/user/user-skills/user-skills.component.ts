@@ -13,7 +13,7 @@ import {
   UserService,
 } from '@core/services'
 import { Observable, Subscription } from 'rxjs'
-import { SkillService } from '@app/features/skills/services/skill.service';
+import { SkillService } from '@core/services';
 
 @Component({
   templateUrl: './user-skills.component.html',

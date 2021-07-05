@@ -2,9 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AlertService, AuthenticationService, User } from '@app/core';
-import { Skill } from '@app/features/skills/models/skill';
-import { SkillLevel } from '@app/features/skills/models/skillLevel';
-import { SkillService } from '@app/features/skills/services/skill.service';
+import { Skill } from '@app/core';
+import { SkillLevel } from '@app/core';
+import { SkillService } from '@app/core';
 import { JsonConvert } from 'json2typescript';
 import { Observable, of } from 'rxjs';
 import { map,
