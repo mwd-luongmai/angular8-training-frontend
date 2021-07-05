@@ -1,16 +1,11 @@
 <div class="flex-comp-container">
   <div class="flex-comp-item">
+    <div class="right">
+      <button mat-raised-button color="primary" routerLink="/skills/skill-profile">
+        <mat-icon><i class="material-icons md-dark">add</i></mat-icon> Add skill
+      </button>
+    </div>
     <div class="person-grid-container">
-      
-      <mat-card  routerLink="/skills/skill-profile" class="person-card-item" >
-      
-        <mat-card-header>
-          <mat-card-title>Create new skill</mat-card-title>
-        
-        </mat-card-header>
-        <mat-card-content></mat-card-content>
-      
-      </mat-card>
       <mat-card [routerLink]="['/skills/',skill.id]" *ngFor="let skill of skills"  class="person-card-item" >
         <mat-card-header>
           <mat-card-title>{{ skill.skillName }}</mat-card-title>
