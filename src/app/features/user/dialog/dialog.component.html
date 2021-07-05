@@ -1,0 +1,27 @@
+<h1 mat-dialog-title *ngIf="data.type =='add'">Assign skill</h1>
+<h1 mat-dialog-title *ngIf="data.type =='update'">Update skill</h1>
+<div mat-dialog-content [formGroup]="assignSkillForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Skill name</mat-label>
+    <input matInput #input (input)="searchSkill(input.value)" [matAutocomplete]="auto" formControlName="skillName">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of skills$ | async" [value]="option">
+        {{option.skillName}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Skill level</mat-label>
+    <mat-select formControlName="skillLevel">
+      <mat-option *ngFor="let skillLevel of skillLevels" [value]="skillLevel._id">
+        {{skillLevel.skillLevelName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="animal" cdkFocusInitial (click)="submitForm()">Submit</button>
+</div>
