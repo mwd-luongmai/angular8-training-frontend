@@ -59,22 +59,6 @@ describe('', () => {
 		}
 
 		it(
-			'shoul call AppComponent.logout when clicking log out url',
-			fakeAsync(() => {
-				fixture.detectChanges();
-
-				spyOn(component, 'logout');
-
-				const logoutURL = fixture.debugElement.query(By.css('div.welcome a.mat-button:nth-child(7)'));
-				logoutURL.triggerEventHandler('click', null);
-
-				fixture.whenStable().then(() => {
-					expect(component.logout).toHaveBeenCalled();
-				});
-			})
-		);
-
-		it(
 			'shoul call AuthenticationService.logout function when logging out',
 			fakeAsync(() => {
 				const authenServiceSpy = fixture.debugElement.injector.get(AuthenticationService);

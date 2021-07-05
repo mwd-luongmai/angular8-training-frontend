@@ -32,3 +32,9 @@
   top: 0;
   margin: 10px;
 }
+
+.right {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 15px;
+}

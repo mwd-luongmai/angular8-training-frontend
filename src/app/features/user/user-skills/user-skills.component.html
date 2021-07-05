@@ -1,40 +1,41 @@
-<div><h1> User Skills</h1></div>
-<div class="right">
-  <button (click)="openDialog()" mat-raised-button [disabled]="loading" color="primary">
-    <mat-icon><i class="material-icons md-dark">add</i></mat-icon
-    > Add skill
-  </button>
-</div>
-
-<div class="user-skill-table">User's skills</div>
-<br>
-<div class="mat-elevation-z8 user-skill-table" *ngIf="userSkills.length > 0 ">
-  <table mat-table [dataSource]="dataSource">
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="skillName">
-      <th mat-header-cell *matHeaderCellDef> Skill Name </th>
-      <td mat-cell *matCellDef="let element"> {{ element.skillName }} </td>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="skillLevel">
-      <th mat-header-cell *matHeaderCellDef> Skill level </th>
-      <td mat-cell *matCellDef="let element"> {{element.skillLevel}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let element"> 
-        <button *ngIf="element.actions.update == true " (click)="updateSkill(element)"> Update </button>
-        <button *ngIf="element.actions.delete == true " (click)="deleteSkill(element)"> Delete </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div>
+<mat-card>
+  <mat-card-title>User Skills</mat-card-title>
+  <mat-card-content>
+    <div class="right">
+      <button (click)="openDialog()" mat-raised-button [disabled]="loading" color="primary">
+        <mat-icon><i class="material-icons md-dark">add</i></mat-icon> Add skill
+      </button>
+    </div>
+    <br>
+    <div class="mat-elevation-z8 user-skill-table" *ngIf="userSkills.length > 0 ">
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="skillName">
+          <th mat-header-cell *matHeaderCellDef> Skill Name </th>
+          <td mat-cell *matCellDef="let element"> {{ element.skillName }} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="skillLevel">
+          <th mat-header-cell *matHeaderCellDef> Skill level </th>
+          <td mat-cell *matCellDef="let element"> {{element.skillLevel}} </td>
+        </ng-container>
+    
+    
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element">
+            <button *ngIf="element.actions.update == true " (click)="updateSkill(element)"> Update </button>
+            <button *ngIf="element.actions.delete == true " (click)="deleteSkill(element)"> Delete </button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
