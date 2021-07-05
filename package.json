@@ -14,7 +14,7 @@
     "e2e": "ng e2e",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "lint:fix": "ng lint --fix",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {

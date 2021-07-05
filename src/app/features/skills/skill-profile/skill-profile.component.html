@@ -1,5 +1,5 @@
 <div class="flex-comp-container skill-profile">
-  <div class="message" *ngIf="errorMessages.server_message && skillId !='' "><h2>{{errorsDef.server_message}}</h2></div>
+  <div class="message" *ngIf="errorMessages['server_message'] && skillId !='' "><h2>{{errorsDef.server_message}}</h2></div>
     <mat-card *ngIf="isComponentReady">
       <mat-card-title class="align-left">{{ skillId?"Update":"Create" }} Skill Profile </mat-card-title>
       <mat-card-content>
